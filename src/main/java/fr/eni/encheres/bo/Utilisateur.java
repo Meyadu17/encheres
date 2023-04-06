@@ -33,24 +33,26 @@ public class Utilisateur {
     private String prenom;
 
     @Column(name="email",nullable = false)
+
     private String email;
 
     @Column(name="telephone")
     private String telephone;
 
-    @Column(name="rue",nullable = false)
+    @Column(name="rue", nullable = false)
     private String rue;
 
-    @Column(name="code_postale",nullable = false)
-    private String codePostale;
+    @Column(name="code_postal", nullable = false)
+    private String codePostal;
 
-    @Column(name="ville",nullable = false)
+    @Column(name="ville", nullable = false)
     private String ville;
 
-    @Column(name="mot_de_passe",nullable = false)
+    @Column(name="mot_de_passe", nullable = false)
     private String motDePasse;
 
-    @Column(name="credit",nullable = false)
+    @Column(name="credit", nullable = false)
+
     private int credit;
 
     @Column(name="administrateur")
@@ -59,6 +61,9 @@ public class Utilisateur {
     @Column(name="compteActif")
     private boolean compteActif;
 
+    public Utilisateur() {
+
+    }
 }
 
 

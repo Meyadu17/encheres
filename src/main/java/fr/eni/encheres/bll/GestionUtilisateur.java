@@ -17,13 +17,16 @@ public class GestionUtilisateur {
     @Autowired
     UtilisateurDAO utilisateurDAO;
 
+//creation nouveau compte
+
     public void creerUtilisateur(Utilisateur utilisateur) {
 
         Utilisateur userToFind = utilisateurDAO.findByPseudo(utilisateur.getPseudo());
 
         if (userToFind == null) {
             Utilisateur userToFindByPseudo = utilisateurDAO.findByPseudo(utilisateur.getPseudo());
-            Utilisateur userToFindByEmail = utilisateurDAO.findByPseudo(utilisateur.getEmail());
+
+            Utilisateur userToFindByEmail = utilisateurDAO.findByEmail(utilisateur.getEmail());
 
             if (userToFindByPseudo == null && userToFindByEmail == null) {
                 utilisateurDAO.save(utilisateur);

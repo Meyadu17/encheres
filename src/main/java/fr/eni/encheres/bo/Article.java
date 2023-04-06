@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
+
 @Table(name = "article")
 public class Article{
 
