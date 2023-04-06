@@ -1,11 +1,11 @@
 package fr.eni.encheres.dal;
 
-import fr.eni.encheres.bo.Utilisateurs;
+import fr.eni.encheres.bo.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UtilisateurDAO extends JpaRepository<Utilisateurs, Integer> {
+public interface UtilisateurDAO extends JpaRepository<Utilisateur, Integer> {
 
-    Utilisateurs findByPseudo(String pseudo);
+    Utilisateur findByPseudo(String pseudo);
 
-    Utilisateurs findByEmail(String login);
+    Utilisateur findByEmail(String login);
 }
