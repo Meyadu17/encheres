@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Service gerant un utilisateur
@@ -43,4 +44,13 @@ public class GestionUtilisateur {
         return utilisateurs;
     }
 
+    public Utilisateur trouverUtilisateurByLogin(Utilisateur utilisateur) {
+        Optional<Utilisateur> userFound = utilisateurDAO.findById(utilisateur.getNoUtilisateur());
+        if (userFound.isEmpty()) {
+            utilisateur = null;
+        } else {
+            utilisateur = userFound.get();
+        }
+        return utilisateur;
+    }
 }

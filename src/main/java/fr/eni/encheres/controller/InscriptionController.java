@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import java.util.logging.Logger;
 
+/**
+ * Controller de la page inscription
+ *
+ * @author Sophie L
+ */
 @Controller
 @SessionAttributes(names = { "userInSession" , "recherche"})
 public class InscriptionController {
