@@ -33,7 +33,7 @@ public class InscriptionController {
     @RequestMapping(value = "/validerInscription", method = RequestMethod.POST)
     public String validerInscription(@ModelAttribute("userInSession") Utilisateur user) {
         logger.warning("Valider inscription");
-        return "login";
+        return "accueil";
 
     }
 
