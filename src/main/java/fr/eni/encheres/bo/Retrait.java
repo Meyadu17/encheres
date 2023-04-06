@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -16,7 +17,7 @@ import javax.persistence.Column;
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name = "retrait")
+@Entity(name = "retrait")
 public class Retrait {
 
     @Id
