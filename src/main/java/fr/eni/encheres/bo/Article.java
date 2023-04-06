@@ -5,7 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 import java.time.LocalDateTime;
 
 /**
@@ -16,8 +20,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name = "articles")
-public class Article {
+
+@Table(name = "article")
+public class Article{
 
     @Id
     @Column(name = "no_article", nullable = false)
@@ -46,8 +51,8 @@ public class Article {
     private Utilisateur utilisateur;
 
     @ManyToOne
-    @JoinColumn(name = "no_categorie", nullable = false)
-    private Categorie categories;
+    @JoinColumn(name = "no_utilisateur", nullable = false)
+    private Categorie categorie;
 
     @Column(name = "etat_enchere")
     private Etat etat;

@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name="encheres")
+@Table(name="enchere")
 public class Enchere {
 
     @Column(name="date_enchere",nullable = false)

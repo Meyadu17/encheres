@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;import javax.persistence.Table;
+import javax.persistence.*;
 import javax.persistence.Id;
 import javax.persistence.Column;
 /**
@@ -15,24 +15,25 @@ import javax.persistence.Column;
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity(name="utilisateurs")
+@Entity(name="utilisateur")
 public class Utilisateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="no_utilisateur", nullable = false)
+    @Column(name="no_utilisateur",nullable = false)
     private int noUtilisateur;
 
-    @Column(name="pseudo", nullable = false)
+    @Column(name="pseudo",nullable = false)
     private String pseudo;
 
-    @Column(name="nom", nullable = false)
+    @Column(name="nom",nullable = false)
     private String nom;
 
-    @Column(name="prenom", nullable = false)
+    @Column(name="prenom",nullable = false)
     private String prenom;
 
-    @Column(name="email", nullable = false)
+    @Column(name="email",nullable = false)
+
     private String email;
 
     @Column(name="telephone")
@@ -51,6 +52,7 @@ public class Utilisateur {
     private String motDePasse;
 
     @Column(name="credit", nullable = false)
+
     private int credit;
 
     @Column(name="administrateur")

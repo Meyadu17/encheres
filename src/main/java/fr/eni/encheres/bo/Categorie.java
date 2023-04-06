@@ -17,7 +17,7 @@ import javax.persistence.Column;
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity(name = "categories")
+@Table(name = "categorie")
 public class Categorie {
 
     @Id
