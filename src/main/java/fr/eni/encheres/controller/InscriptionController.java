@@ -1,9 +1,9 @@
 package fr.eni.encheres.controller;
 
-import fr.eni.encheres.bll.GestionUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.UtilisateurDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import javax.validation.Valid;
 import java.util.logging.Logger;
 
+/**
+ * Controller de la page inscription
+ *
+ * @author Sophie L
+ */
 @Controller
 @SessionAttributes(names = { "userInSession"})
 public class InscriptionController {

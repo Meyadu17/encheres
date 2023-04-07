@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
-
 /**
- * Service gerant un utilisateur
+ * Service gérant un utilisateur
+ *
  * @author mdelage2021
  */
 @Service
@@ -20,9 +21,9 @@ public class GestionUtilisateur {
 
     @Autowired
     UtilisateurDAO utilisateurDAO;
-//creation nouveau compte
+    
+    //creation nouveau compte
     public void creerUtilisateur(Utilisateur utilisateur) {
-        logger.warning("toto");
 
         Utilisateur userToFind = utilisateurDAO.findByPseudo(utilisateur.getPseudo());
 
@@ -47,4 +48,25 @@ public class GestionUtilisateur {
         return utilisateurs;
     }
 
+    public Utilisateur trouverUtilisateur(Utilisateur utilisateur) {
+        Optional<Utilisateur> userFound = utilisateurDAO.findById(utilisateur.getNoUtilisateur());
+        if (userFound.isEmpty()) {
+            utilisateur = null;
+        } else {
+            utilisateur = userFound.get();
+        }
+        return utilisateur;
+    }
+
+    public Utilisateur trouverUtilisateurByLogin(String login) {
+        Utilisateur utilisateur = null;
+        Utilisateur uPseudo = utilisateurDAO.findByPseudo(login);
+        Utilisateur uMail = utilisateurDAO.findByEmail(login);
+        if (uPseudo != null) {
+            utilisateur = uPseudo;
+        } else if (uMail != null) {
+            utilisateur = uMail;
+        }
+        return utilisateur;
+    }
 }
