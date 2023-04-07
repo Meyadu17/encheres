@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-import java.util.Locale;
 import java.util.logging.Logger;
 
 /**
@@ -28,9 +26,6 @@ public class ConnectionController {
     @Autowired
     private GestionUtilisateur gestionUtilisateur;
 
-    @Autowired
-    private SessionLocaleResolver localeResolver;
-
     @ModelAttribute("userInSession")
     public Utilisateur addMyBean1ToSessionScope() {
         logger.warning("Injection de l'attribut en session");
@@ -42,11 +37,11 @@ public class ConnectionController {
         logger.warning("Voici les données saisies par le client : " + user);
         Utilisateur utilisateurEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
         if (utilisateurEnBase == null) {
-            return "login";
+            return "connexion";
         } else {
             user.setNom(utilisateurEnBase.getNom());
             mm.addAttribute("userInSession", utilisateurEnBase);
-            return "welcome";
+            return "accueil";
         }
     }
 
@@ -55,32 +50,25 @@ public class ConnectionController {
         logger.warning("Voici les données saisies par le client : " + user);
         Utilisateur utilisateurEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
         if (utilisateurEnBase == null) {
-            return "login";
+            return "connexion";
         } else {
             user.setNom(utilisateurEnBase.getNom());
             model.addAttribute("userInSession", utilisateurEnBase);
-            return "welcome";
+            return "accueil";
         }
     }
 
     @RequestMapping(value = "/deconnexion", method = RequestMethod.GET)
     public String deconnecterUtilisateur(SessionStatus status) {
         status.setComplete();
-        return "login";
+        return "connexion";
     }
 
     @RequestMapping(value = "/connexion", method = RequestMethod.GET)
-    public String demandeConnexionUtilisateur() {
+    public String Connexion() {
         logger.warning("Demande de connexion");
-        return "login";
+        return "connexion";
 
     }
 
-
-    @RequestMapping(value = "/i18n", method = RequestMethod.GET)
-    public String choixDelaLangue(String lg) {
-        Locale locale = new Locale(lg);
-        localeResolver.setDefaultLocale(locale);
-        return "login";
-    }
 }

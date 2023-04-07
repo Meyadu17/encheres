@@ -18,11 +18,11 @@ public class EncheresApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EncheresApplication.class, args);
 	}
-
+/*
 	@Bean
 	public SessionLocaleResolver localeResolver() {
 		SessionLocaleResolver r = new SessionLocaleResolver();
 		r.setDefaultLocale(Locale.FRANCE);
 		return r;
-	}
+	}*/
 }
