@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.logging.Logger;
+
 
 /**
  * Service gerant un utilisateur
@@ -14,12 +16,13 @@ import java.util.List;
 @Service
 public class GestionUtilisateur {
 
+    private static Logger logger = Logger.getLogger("utilisateur");
+
     @Autowired
     UtilisateurDAO utilisateurDAO;
-
 //creation nouveau compte
-
     public void creerUtilisateur(Utilisateur utilisateur) {
+        logger.warning("toto");
 
         Utilisateur userToFind = utilisateurDAO.findByPseudo(utilisateur.getPseudo());
 
@@ -29,6 +32,7 @@ public class GestionUtilisateur {
             Utilisateur userToFindByEmail = utilisateurDAO.findByEmail(utilisateur.getEmail());
 
             if (userToFindByPseudo == null && userToFindByEmail == null) {
+                utilisateur.setCompteActif(true);
                 utilisateurDAO.save(utilisateur);
             } else if (userToFindByPseudo != null) {
                 System.err.println(utilisateur.getPseudo() + " : ce pseudo est déjà utilisé.");
