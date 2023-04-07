@@ -3,10 +3,12 @@ package fr.eni.encheres.controller;
 import fr.eni.encheres.bll.GestionUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -18,6 +20,8 @@ import java.util.logging.Logger;
  *
  * @author mdelage2021
  */
+@Controller
+@SessionAttributes(names = { "userInSession" , "recherche"})
 public class ConnectionController {
     private static Logger logger = Logger.getLogger("ConnexionController");
 
@@ -36,12 +40,12 @@ public class ConnectionController {
     @RequestMapping(value = "/validerConnexion", method = RequestMethod.POST)
     public String verfiConnectionUtilisateur(Model mm, @ModelAttribute("userInSession") Utilisateur user) {
         logger.warning("Voici les données saisies par le client : " + user);
-        Utilisateur uEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
-        if (uEnBase == null) {
+        Utilisateur utilisateurEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
+        if (utilisateurEnBase == null) {
             return "login";
         } else {
-            // user.setNom(uEnBase.getNom());
-            mm.addAttribute("userInSession", uEnBase);
+            user.setNom(utilisateurEnBase.getNom());
+            mm.addAttribute("userInSession", utilisateurEnBase);
             return "welcome";
         }
     }
@@ -71,6 +75,7 @@ public class ConnectionController {
         return "login";
 
     }
+
 
     @RequestMapping(value = "/i18n", method = RequestMethod.GET)
     public String choixDelaLangue(String lg) {
