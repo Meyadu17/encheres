@@ -33,8 +33,8 @@ public class InscriptionController {
     }
     private static Logger logger = Logger.getLogger("ConnexionController");
 
-    @Autowired
-    private GestionUtilisateur beanGU;
+   /* @Autowired
+    private GestionUtilisateur beanGU;*/
 
     @RequestMapping(value = "/creation_profil", method = RequestMethod.GET)
     public String creerUtilisateur() {
@@ -47,7 +47,7 @@ public class InscriptionController {
     @RequestMapping(value = "/validerInscription", method = RequestMethod.POST)
     public String validerinscrire(@ModelAttribute("userInSession") Utilisateur user) {
         logger.warning("Demande validation");
-        beanGU.creerUtilisateur(user);
+        /*beanGU.creerUtilisateur(user);*/
         return "accueil";
     }
 }
