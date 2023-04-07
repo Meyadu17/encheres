@@ -31,9 +31,7 @@ public class GestionUtilisateur {
 
         if (userToFind == null) {
             Utilisateur userToFindByPseudo = utilisateurDAO.findByPseudo(utilisateur.getPseudo());
-
             Utilisateur userToFindByEmail = utilisateurDAO.findByEmail(utilisateur.getEmail());
-
             if (userToFindByPseudo == null && userToFindByEmail == null) {
                 utilisateur.setCompteActif(true);
                 utilisateur.setCredit(100);

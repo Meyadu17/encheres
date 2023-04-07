@@ -4,6 +4,9 @@ import fr.eni.encheres.bo.enumenation.Etat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
+
+import javax.persistence.*;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -16,6 +19,7 @@ import java.time.LocalDateTime;
  *
  * @author mdelage2021
  */
+
 @Getter
 @Setter
 @AllArgsConstructor

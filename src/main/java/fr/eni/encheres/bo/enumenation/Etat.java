@@ -6,7 +6,7 @@ package fr.eni.encheres.bo.enumenation;
  * @author mdelage2021
  */
 public enum Etat {
-    creee,
-    en_cours,
-    terminee
+    CREEE,
+    ENCOURS,
+    TERMINEE
 }
