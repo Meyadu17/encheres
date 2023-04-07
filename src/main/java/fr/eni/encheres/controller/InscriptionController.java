@@ -1,5 +1,6 @@
 package fr.eni.encheres.controller;
 
+import fr.eni.encheres.bll.GestionUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.UtilisateurDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import javax.validation.Valid;
 import java.util.logging.Logger;
 
 /**

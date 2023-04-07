@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author Jérémy G
  */
-@RestController
+@Controller
 public class AccueilController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
