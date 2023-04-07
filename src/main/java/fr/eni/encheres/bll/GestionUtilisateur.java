@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
  * Service gérant un utilisateur
@@ -16,9 +17,11 @@ import java.util.Optional;
 @Service
 public class GestionUtilisateur {
 
+    private static Logger logger = Logger.getLogger("utilisateur");
+
     @Autowired
     UtilisateurDAO utilisateurDAO;
-
+    
     //creation nouveau compte
     public void creerUtilisateur(Utilisateur utilisateur) {
 
@@ -30,6 +33,7 @@ public class GestionUtilisateur {
             Utilisateur userToFindByEmail = utilisateurDAO.findByEmail(utilisateur.getEmail());
 
             if (userToFindByPseudo == null && userToFindByEmail == null) {
+                utilisateur.setCompteActif(true);
                 utilisateurDAO.save(utilisateur);
             } else if (userToFindByPseudo != null) {
                 System.err.println(utilisateur.getPseudo() + " : ce pseudo est déjà utilisé.");

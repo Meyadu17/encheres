@@ -8,12 +8,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap-theme.min.css">
-        <script src="js/jquery.min.js"></script>
-        <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/commun.css">
-        <link rel="icon" href="img/favicon.ico" />
     </head>
     <body>
         <div class="container">
