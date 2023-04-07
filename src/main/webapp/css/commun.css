@@ -1,3 +1,10 @@
+li{
+    text-style: none;
+}
+
+ul{
+    display: flex;
+
 body {
 	padding-top: 70px;
 	padding-bottom: 70px;
@@ -43,7 +50,7 @@ transform: scaleX(-1);
 -ms-transform: scaleX(-1);
 }
 
-
 .bottle{
 	display: inline-block !important;
+
 }

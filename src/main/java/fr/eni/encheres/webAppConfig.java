@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages ={"fr.eni.encheres.controller"})
 public class webAppConfig implements WebMvcConfigurer {
 
     @Override
