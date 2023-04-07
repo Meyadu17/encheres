@@ -14,7 +14,7 @@ import java.util.Locale;
 import java.util.logging.Logger;
 
 /**
- * Controller de pas page de connexion
+ * Controller de la page de connexion
  *
  * @author mdelage2021
  */
@@ -33,8 +33,8 @@ public class ConnectionController {
         return new Utilisateur();
     }
 
-    @RequestMapping(value = "/connexion", method = RequestMethod.POST)
-    public String verifConnectionUtilisateur(Model mm, @ModelAttribute("userInSession") Utilisateur user) {
+    @RequestMapping(value = "/validerConnexion", method = RequestMethod.POST)
+    public String verfiConnectionUtilisateur(Model mm, @ModelAttribute("userInSession") Utilisateur user) {
         logger.warning("Voici les données saisies par le client : " + user);
         Utilisateur uEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
         if (uEnBase == null) {
@@ -42,6 +42,19 @@ public class ConnectionController {
         } else {
             // user.setNom(uEnBase.getNom());
             mm.addAttribute("userInSession", uEnBase);
+            return "welcome";
+        }
+    }
+
+    @RequestMapping(value = "/connexion", method = RequestMethod.POST)
+    public String verifConnectionUtilisateur(Model model, @ModelAttribute("userInSession") Utilisateur user) {
+        logger.warning("Voici les données saisies par le client : " + user);
+        Utilisateur utilisateurEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
+        if (utilisateurEnBase == null) {
+            return "login";
+        } else {
+            user.setNom(utilisateurEnBase.getNom());
+            model.addAttribute("userInSession", utilisateurEnBase);
             return "welcome";
         }
     }
