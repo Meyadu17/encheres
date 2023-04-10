@@ -11,24 +11,12 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-collapse collapse" id="navbar-main">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="i18n?lg=fr">Français</a></li>
-                        <li><a href="i18n?lg=en">English</a></li>
-                        <li><a href="welcome">Accueil</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
         <div class="container">
             <div class="jumbotron">
+                <jsp:include page="entete.jsp"/>
                 <h1>
                     <spring:message code="login.title" />
                 </h1>
-
                 <h2>${error}</h2>
 
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="POST" action="connexion">
@@ -56,6 +44,11 @@
                         <div class="col-xs-offset-2 col-xs-10">
                             <button type="submit" class="btn btn-primary">
                                 <spring:message code="login.connection" />
+                            </button>
+                        </div>
+                        <div class="col-xs-offset-2 col-xs-10">
+                            <button type="button" class="btn btn-primary">
+                                <li><a href="creation_profil"><spring:message code="login.create" /></a></li>
                             </button>
                         </div>
                     </div>
