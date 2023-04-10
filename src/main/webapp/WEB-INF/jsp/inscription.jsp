@@ -12,7 +12,10 @@
     <body>
         <div class="container">
             <div class="jumbotron">
-            <h1 class="text-center">Mon Profil</h1>
+            <jsp:include page="entete.jsp"/>
+            <h1 class="text-center">
+                Mon Profil
+            </h1>
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="POST" action="validerInscription">
                     <div class="form-group">
                         <form:label path="pseudo" cssClass="col-xs-2 control-label">Pseudo</form:label>

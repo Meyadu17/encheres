@@ -58,7 +58,7 @@ public class Utilisateur {
     @Column(name="administrateur")
     private boolean administrateur;
 
-    @Column(name="compteActif")
+    @Column(name="compte_actif")
     private boolean compteActif;
 
     public Utilisateur() {
