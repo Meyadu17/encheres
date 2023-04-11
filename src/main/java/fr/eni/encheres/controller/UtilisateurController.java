@@ -18,11 +18,13 @@ import java.util.logging.Logger;
 @Controller
 @SessionAttributes(names = { "userInSession" , "recherche"})
 public class UtilisateurController {
+
     //#regrion variables
     private static Logger logger = Logger.getLogger("ConnexionController");
     private GestionUtilisateur beanGU;
     //#endergion variables
 
+    //Ouverture de la session
     @ModelAttribute("userInSession")
     public Utilisateur addMyBean1ToSessionScope() {
         logger.warning("Injection de l'attribut en session");
@@ -33,5 +35,10 @@ public class UtilisateurController {
     public String informationUtilisateur() {
         logger.warning("Profil utilisateur");
         return "profil";
+    }
+    @RequestMapping(value = "/modifier-profil", method = RequestMethod.GET)
+    public String modificationUtilisateur() {
+        logger.warning("Profil utilisateur");
+        return "modifProfil";
     }
 }

@@ -17,11 +17,13 @@ import java.util.logging.Logger;
 @Service
 public class GestionUtilisateur {
 
+    //#Region Variables
     private static Logger logger = Logger.getLogger("utilisateur");
 
     @Autowired
     UtilisateurDAO utilisateurDAO;
-    
+    //#Endregion Variables
+
     //creation nouveau compte
     public void creerUtilisateur(Utilisateur utilisateur) {
 
@@ -69,4 +71,27 @@ public class GestionUtilisateur {
         }
         return utilisateur;
     }
+
+    public Utilisateur trouverUtilisateurByLoginPwd(String login, String passWord) {
+        Utilisateur utilisateur = null;
+        Utilisateur utilisateurPseudo = utilisateurDAO.findByPseudo(login);
+        Utilisateur uMail = utilisateurDAO.findByEmail(login);
+        if (utilisateurPseudo != null && utilisateurPseudo.getMotDePasse().equals(passWord)) {
+            utilisateur = utilisateurPseudo;
+        } else if (uMail != null && uMail.getMotDePasse().equals(passWord)) {
+            utilisateur = uMail;
+        }
+        return utilisateur;
+    }
+
+    public void modifierUtilisateur(Utilisateur utilisateur) {
+        Utilisateur utilisateurTrouve = trouverUtilisateur(utilisateur);
+        if (utilisateurTrouve != null) {
+            utilisateurDAO.save(utilisateur);
+            System.err.println("utilisateur modifié");
+        } else {
+            System.err.println("L'utilisateur n'existe pas");
+        }
+    }
+
 }

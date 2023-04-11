@@ -11,7 +11,7 @@
 <body>
 <header>
     <ul>
-        <li>ENI-Enchère logo</li>
+        <li><img src="img/logoENIEncheres.png"alt="Logo Enchères"></li>
         <li></li>
         <li><a href="connexion">Se connecter </a></li>
     </ul>
