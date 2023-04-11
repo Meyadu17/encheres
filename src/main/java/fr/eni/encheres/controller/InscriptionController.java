@@ -3,6 +3,7 @@ package fr.eni.encheres.controller;
 import fr.eni.encheres.bll.GestionUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.UtilisateurDAO;
+import fr.eni.encheres.utils.PasswordEncrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -47,7 +48,8 @@ public class InscriptionController {
     @RequestMapping(value = "/validerInscription", method = RequestMethod.POST)
     public String validerinscrire(@ModelAttribute("userInSession") Utilisateur user) {
         logger.warning("Demande validation");
-        /*beanGU.creerUtilisateur(user);*/
+        user.setMotDePasse(PasswordEncrypt.encryptPassword(user.getMotDePasse()));
+        utilisateurDAO.save(user);
         return "accueil";
     }
 }

@@ -2,6 +2,7 @@ package fr.eni.encheres.controller;
 
 import fr.eni.encheres.bll.GestionUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
+import fr.eni.encheres.utils.PasswordEncrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,28 +35,28 @@ public class ConnectionController {
 
     @RequestMapping(value = "/validerConnexion", method = RequestMethod.POST)
     public String verfiConnectionUtilisateur(Model mm, @ModelAttribute("userInSession") Utilisateur user) {
+        String page="";
         logger.warning("Voici les données saisies par le client : " + user);
         Utilisateur utilisateurEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
         if (utilisateurEnBase == null) {
-            return "connexion";
-        } else {
-            user.setNom(utilisateurEnBase.getNom());
-            mm.addAttribute("userInSession", utilisateurEnBase);
-            return "accueil";
+            page = "connexion";
+        } else{
+            if(PasswordEncrypt.encryptPassword(user.getMotDePasse()).equals(utilisateurEnBase.getMotDePasse())) {
+                user.setNom(utilisateurEnBase.getNom());
+                mm.addAttribute("userInSession", utilisateurEnBase);
+                page = "accueil";
+            }else{
+                page ="connexion";
+            }
         }
+        return page;
     }
 
     @RequestMapping(value = "/connexion", method = RequestMethod.POST)
-    public String verifConnectionUtilisateur(Model model, @ModelAttribute("userInSession") Utilisateur user) {
-        logger.warning("Voici les données saisies par le client : " + user);
-        Utilisateur utilisateurEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
-        if (utilisateurEnBase == null) {
-            return "connexion";
-        } else {
-            user.setNom(utilisateurEnBase.getNom());
-            model.addAttribute("userInSession", utilisateurEnBase);
-            return "accueil";
-        }
+    public String demandeConnexionUtilisateur() {
+        logger.warning("Demande de connexion");
+        return "connexion";
+
     }
 
     @RequestMapping(value = "/deconnexion", method = RequestMethod.GET)
