@@ -3,12 +3,12 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html>
-<html>
+
     <jsp:include page="entete.jsp"/>
+
         <div class="container">
             <div class="jumbotron">
-                <h1>Liste des enchères</h1>
+                <h1>Liste des ench&egrave;res</h1>
                 <form method="post" action="#">
                     <label for="filtre">Filtres:<input type="text"/></label>
                     <label for="categorie">
@@ -20,9 +20,9 @@
                         </select>
                     </label>
                     <label for="achat"> Achats :<input type="radio" name="achat"/> </label>
-                    <label for="enchere ouvertes"> enchères ouvertes<input type="checkbox" name="eouverte"></label>
-                    <label for="enchere cours"> enchères en cours <input type="checkbox" name="eencours"></label>
-                    <label for="enchere remportees"> enchères remportées <input type="checkbox" name="eremportees"></label>
+                    <label for="enchere ouvertes"> ench&egrave;res ouvertes<input type="checkbox" name="eouverte"></label>
+                    <label for="enchere cours"> ench&egrave;&egrave;res en cours <input type="checkbox" name="eencours"></label>
+                    <label for="enchere remportees"> ench&egrave;res remportées <input type="checkbox" name="eremportees"></label>
                     <label for="vente"> Mes ventes : <input type="radio" name="achat"> </label>
                     <label for="vente cours"> Mes ventes en cours <input type="checkbox" name="vencours"></label>
                     <label for="vente non debutees">Mes ventes non débutées<input type="checkbox" name="vnondebutees"></label>
@@ -33,7 +33,7 @@
                     <tr><td>titre article1</td><td>titre article2</td></tr>
                     <tr><td>prix article1</td><td>prix article2</td></tr>
                     <tr><td>image article1</td><td>image article2</td></tr>
-                    <tr><td>fin enchère article1</td><td>fin enchère article2</td></tr>
+                    <tr><td>fin ench&egrave;re article1</td><td>fin ench&egrave;re article2</td></tr>
                     <tr><td>vendeur article1</td><td>vendeur article2</td></tr>
                 <table>
             </div>
