@@ -15,15 +15,19 @@
             <div class="jumbotron">
                 <jsp:include page="entete.jsp"/>
                 <h1>
-                    Mon profil
+                    Afficher le profile
                 </h1>
 
-                <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="GET" action="modificationUtilisateur">
+                <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="GET" action="informationUtilisateur">
 
 
 
                 </form:form>
             </div>
         </div>
-        <jsp:include page="footer.jsp" />
     </body>
+
+
+
+	<jsp:include page="footer.jsp" />
+</html>
