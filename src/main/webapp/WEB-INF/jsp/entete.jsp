@@ -10,10 +10,11 @@
 </head>
 <body>
 <header>
-    <ul>
-        <li><img src="img/logoENIEncheres.png"alt="Logo Enchères"></li>
-        <li></li>
-        <li><a href="connexion">Se connecter </a></li>
-    </ul>
+     <nav class="navbar bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand"><img src="img/logoENIEncheres.png"alt="Logo Enchères"></a>
+            <a class="navbar-brand" href="connexion">Se connecter </a>
+          </div>
+    </nav>
 </header>
 
