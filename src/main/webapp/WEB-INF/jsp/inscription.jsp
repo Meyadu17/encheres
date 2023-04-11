@@ -8,31 +8,35 @@
 
         <div class="container">
             <div class="jumbotron">
-            <h1 class="text-center">Mon Profil</h1>
+                <h1 class="text-center">Mon Profil</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="jumbotron">
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="POST" action="validerInscription">
                     <div class="form-group">
-                        <form:label path="pseudo" cssClass="col-xs-2 control-label">Pseudo</form:label>
+                        <form:label path="pseudo" cssClass="col-xs-2 control-label">Pseudo*</form:label>
                         <div class="col-xs-10">
                             <form:input path="pseudo" cssClass="form-control" />
                             <form:errors path="pseudo"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
-                        <form:label path="nom" cssClass="col-xs-2 control-label">Nom</form:label>
+                        <form:label path="nom" cssClass="col-xs-2 control-label">Nom*</form:label>
                         <div class="col-xs-10">
                             <form:input path="nom" cssClass="form-control" />
                             <form:errors path="nom"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
-                        <form:label path="prenom" cssClass="col-xs-2 control-label">Prénom</form:label>
+                        <form:label path="prenom" cssClass="col-xs-2 control-label">Prénom*</form:label>
                         <div class="col-xs-10">
                             <form:input path="prenom" cssClass="form-control" />
                             <form:errors path="prenom"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
-                        <form:label path="email" cssClass="col-xs-2 control-label">Email</form:label>
+                        <form:label path="email" cssClass="col-xs-2 control-label">Email*</form:label>
                         <div class="col-xs-10">
                             <form:input path="email" cssClass="form-control"/>
                             <!--<form:input path="email" cssClass="form-control" pattern="/^[-!#-'*+\/-9=?^-~]+(?:\.[-!#-'*+\/-9=?^-~]+)*@[-!#-'*+\/-9=?^-~]+(?:\.[-!#-'*+\/-9=?^-~]+)+$/i"/>-->
@@ -70,21 +74,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <form:label path="motDePasse" cssClass="col-xs-2 control-label"> Mot de passe</form:label>
+                        <form:label path="motDePasse" cssClass="col-xs-2 control-label">Mot de passe*</form:label>
                         <div class="col-xs-10">
                             <form:password path="motDePasse" cssClass="form-control" />
                             <form:errors path="motDePasse"></form:errors>
                         </div>
+                        <!--<form:label path="motDePasse" cssClass="col-xs-2 control-label">Mot de passe*</form:label>
                         <div class="col-xs-10">
                             <form:password path="motDePasse" cssClass="form-control" />
                             <form:errors path="motDePasse"></form:errors>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="form-group">
-                        <form:label path="motDePasse" cssClass="col-xs-2 control-label"> Mot de passe</form:label>
                         <div class="col-xs-offset-2 col-xs-10">
                             <button type="submit" class="btn btn-primary">Créer</button>
-
                             <button type="submit" class="btn btn-primary">Supprimer</button>
                         </div>
                     </div>

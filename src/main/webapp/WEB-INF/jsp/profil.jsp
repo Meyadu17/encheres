@@ -3,19 +3,16 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Profil</title>
-    </head>
-    <body>
+
+    <jsp:include page="entete.jsp"/>
+
         <div class="container">
             <div class="jumbotron">
-                <jsp:include page="entete.jsp"/>
-                <h1 class="text-center">
-                    Mon Profil
-                </h1>
+                <h1 class="text-center">Mon Profil</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="jumbotron">
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="GET" action="informationUtilisateur">
                     <div class="form-group">
                         <form:label path="pseudo" cssClass="col-xs-2 control-label">Pseudo</form:label>
@@ -83,7 +80,7 @@
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-10">
                             <button type="button" class="btn btn-primary">
-                                <a href="creation_profil">Modifier</a>
+                                <a style="color:white" href="creation_profil">Modifier</a>
                             </button>
                         </div>
                     </div>

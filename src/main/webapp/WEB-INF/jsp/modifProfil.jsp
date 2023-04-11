@@ -14,9 +14,7 @@
         <div class="container">
             <div class="jumbotron">
                 <jsp:include page="entete.jsp"/>
-                <h1>
-                    Mon profil
-                </h1>
+                <h1>Mon profil</h1>
 
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="GET" action="modificationUtilisateur">
 

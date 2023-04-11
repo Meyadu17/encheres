@@ -11,10 +11,12 @@
     </head>
     <body>
         <header>
-             <nav class="navbar bg-body-tertiary">
-                  <div class="container-fluid">
-                    <a class="navbar-brand"><img src="img/logoENIEncheres.png"alt="Logo Enchères"></a>
-                    <a class="navbar-brand" href="connexion">Se connecter </a>
-                  </div>
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                <div class="container">
+                    <ul class="nav navbar-nav bg-body-tertiary">
+                        <li class="pull-left"><a class="navbar-brand"><img src="img/logoENIEncheres.png"alt="Logo Enchères" width="110" class="d-inline-block align-top"></a></li>
+                        <li class="pull-right"><a class="navbar-brand" href="connexion">Se connecter </a></li>
+                    </ul>
+                </div>
             </nav>
         </header>

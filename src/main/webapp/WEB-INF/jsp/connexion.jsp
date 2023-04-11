@@ -9,8 +9,11 @@
         <div class="container">
             <div class="jumbotron">
                 <h1><spring:message code="login.title" /></h1>
-                <h2>${error}</h2>
-
+                                <h2>${error}</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="jumbotron">
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="POST" action="validerConnexion">
                     <div class="form-group">
                         <form:label path="email" cssClass="col-xs-2 control-label">
