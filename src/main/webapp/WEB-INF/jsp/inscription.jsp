@@ -3,19 +3,12 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Login</title>
-    </head>
-    <body>
+
+    <jsp:include page="entete.jsp"/>
+
         <div class="container">
             <div class="jumbotron">
-            <jsp:include page="entete.jsp"/>
-            <h1 class="text-center">
-                Mon Profil
-            </h1>
+            <h1 class="text-center">Mon Profil</h1>
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="POST" action="validerInscription">
                     <div class="form-group">
                         <form:label path="pseudo" cssClass="col-xs-2 control-label">Pseudo</form:label>
@@ -41,14 +34,16 @@
                     <div class="form-group">
                         <form:label path="email" cssClass="col-xs-2 control-label">Email</form:label>
                         <div class="col-xs-10">
-                            <form:input path="email" cssClass="form-control" />
+                            <form:input path="email" cssClass="form-control"/>
+                            <!--<form:input path="email" cssClass="form-control" pattern="/^[-!#-'*+\/-9=?^-~]+(?:\.[-!#-'*+\/-9=?^-~]+)*@[-!#-'*+\/-9=?^-~]+(?:\.[-!#-'*+\/-9=?^-~]+)+$/i"/>-->
                             <form:errors path="email"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <form:label path="telephone" cssClass="col-xs-2 control-label">Téléphone</form:label>
                         <div class="col-xs-10">
-                            <form:input path="telephone" cssClass="form-control" />
+                            <form:input path="telephone" cssClass="form-control"/>
+                            <!--<form:input path="telephone" cssClass="form-control" pattern="(0)[1-9][0-9]{8}"/>-->
                             <form:errors path="telephone"></form:errors>
                         </div>
                     </div>
@@ -62,7 +57,8 @@
                     <div class="form-group">
                         <form:label path="codePostal" cssClass="col-xs-2 control-label">Code Postal</form:label>
                         <div class="col-xs-10">
-                            <form:input path="codePostal" cssClass="form-control" />
+                            <form:input path="codePostal" cssClass="form-control"/>
+                            <!--<form:input path="codePostal" cssClass="form-control" pattern="/^(?:0[1-9]|[1-8]\d|9[0-8])\d{3}$/"/>-->
                             <form:errors path="codePostal"></form:errors>
                         </div>
                     </div>
@@ -79,11 +75,17 @@
                             <form:password path="motDePasse" cssClass="form-control" />
                             <form:errors path="motDePasse"></form:errors>
                         </div>
+                        <div class="col-xs-10">
+                            <form:password path="motDePasse" cssClass="form-control" />
+                            <form:errors path="motDePasse"></form:errors>
+                        </div>
                     </div>
                     <div class="form-group">
+                        <form:label path="motDePasse" cssClass="col-xs-2 control-label"> Mot de passe</form:label>
                         <div class="col-xs-offset-2 col-xs-10">
-                            <button type="submit" class="btn btn-primary"> Créer</button>
-                            <button type="submit" class="btn btn-primary"> Supprimer</button>
+                            <button type="submit" class="btn btn-primary">Créer</button>
+
+                            <button type="submit" class="btn btn-primary">Supprimer</button>
                         </div>
                     </div>
                 </form:form>
