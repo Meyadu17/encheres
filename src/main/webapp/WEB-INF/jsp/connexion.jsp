@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-xs-offset-2 col-xs-10">
                             <button type="button" class="btn btn-primary">
-                                <li><a href="creation_profil"><spring:message code="login.create" /></a></li>
+                                <a href="creation_profil"><spring:message code="login.create" /></a>
                             </button>
                         </div>
                     </div>

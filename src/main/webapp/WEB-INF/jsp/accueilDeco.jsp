@@ -19,15 +19,6 @@
                             <option value="musique">musique</option>
                         </select>
                     </label>
-                    <label for="achat"> Achats :<input type="radio" name="achat"/> </label>
-                    <label for="enchere ouvertes"> enchères ouvertes<input type="checkbox" name="eouverte"></label>
-                    <label for="enchere cours"> enchères en cours <input type="checkbox" name="eencours"></label>
-                    <label for="enchere remportees"> enchères remportées <input type="checkbox" name="eremportees"></label>
-                    <label for="vente"> Mes ventes : <input type="radio" name="achat"> </label>
-                    <label for="vente cours"> Mes ventes en cours <input type="checkbox" name="vencours"></label>
-                    <label for="vente non debutees">Mes ventes non débutées<input type="checkbox" name="vnondebutees"></label>
-                    <label for="vente terminées"> Mes ventes terminées <input type="checkbox" name="vterminees"></label>
-                    <input type="submit" value="Rechercher">
                 </form>
                 <table>
                     <tr><td>titre article1</td><td>titre article2</td></tr>
