@@ -48,9 +48,8 @@ public class AccueilDecoController {
     public static Map<String, Categorie> lesCategories = new HashMap<>();
 
     @PostConstruct
-    public void addMyBean2ToApplicationScope() {
+    public void categorieFilter() {
         logger.warning("Injection de la liste des categories dans l appli");
-
         List <Categorie> categories = beanGC.listeCategories();
         context.setAttribute("categories", categories);
         for (Categorie cat : categories) {
