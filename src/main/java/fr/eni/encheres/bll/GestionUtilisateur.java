@@ -84,14 +84,10 @@ public class GestionUtilisateur {
         return utilisateur;
     }
 
-    public void modifierUtilisateur(Utilisateur utilisateur) {
+    public void updateUtilisateur(Utilisateur utilisateur) {
         Utilisateur utilisateurTrouve = trouverUtilisateur(utilisateur);
-        if (utilisateurTrouve != null) {
-            utilisateurDAO.save(utilisateur);
+            utilisateurDAO.save(utilisateurTrouve);
             System.err.println("utilisateur modifié");
-        } else {
-            System.err.println("L'utilisateur n'existe pas");
-        }
-    }
 
+    }
 }

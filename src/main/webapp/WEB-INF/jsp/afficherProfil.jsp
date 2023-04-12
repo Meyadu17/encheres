@@ -15,7 +15,7 @@
             <div class="jumbotron">
                 <jsp:include page="entete.jsp"/>
                 <h1>
-                    Afficher le profile
+                    Afficher le profil
                 </h1>
 
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="GET" action="informationUtilisateur">

@@ -13,7 +13,7 @@
         </div>
         <div class="container">
             <div class="jumbotron">
-                <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="GET" action="informationUtilisateur">
+                <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="PUT" action="validerModification">
                     <div class="form-group">
                         <form:label path="pseudo" cssClass="col-xs-2 control-label">Pseudo</form:label>
                         <div class="col-xs-10">
@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-10">
-                            <button type="button" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary">
                                 <a style="color:white" href="creation_profil">Enregister</a>
                             </button>
                         </div>
