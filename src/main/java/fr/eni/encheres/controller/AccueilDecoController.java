@@ -31,16 +31,19 @@ import java.util.logging.Logger;
 @Controller
 @SessionAttributes("recherche")
 public class AccueilDecoController {
+
+    //#region variables
     @Autowired
     GestionArticle beanGA;
     @Autowired
     GestionCategorie beanGC;
     @Autowired
     ServletContext context;
-
+    //#endreg
 
     private static Logger logger = Logger.getLogger("ConnexionController");
     public static Map<String, Categorie> lesCategories = new HashMap<>();
+    //#endregion variable
 
     @PostConstruct
     public void categorieFilter() {

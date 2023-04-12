@@ -14,19 +14,18 @@
         <div class="container">
             <div class="jumbotron">
                 <!--Filtre de recherche-->
+
                 <div class="col col-md-6 text-center mx-auto text-center d-flex flex-row">
-                    <form th:action="@{/}">
-                        Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
-                        &nbsp;
-                        <input type="submit" class ="btn btn-primary" value="Search" />
-                        &nbsp;
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher par nom" name="keyword" aria-label="Search" id="keyword" th:value="${keyword}">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
                 <!--Menu catégorie-->
                 <div>
                     <p class="d-flex flex-row">
-                        <label class="col-lg-3 pt-3" for="categories">Catégorie&nbsp;:</label>
-                        <select name="category_filter" id="categories" class="col-lg-9 mt-2 form-control">
+                        <label for="categories">Catégorie :</label>
+                        <select name="category_filter" id="categories">
                             <option value="all">Toutes</option>
                             <c:forEach items="${categories}" var="categorie">
                                 <c:choose>
@@ -51,7 +50,6 @@
                 </div>
             <div>
         </div>
-        <br><br>
 
         <!--Liste des enchères-->
         <div class="container">
