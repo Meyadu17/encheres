@@ -73,8 +73,9 @@
                     <div class="form-group">
                         <form:label path="motDePasse" cssClass="col-xs-2 control-label">Mot de passe*</form:label>
                         <div class="col-xs-10">
-                            <form:password path="motDePasse" cssClass="form-control" id="motDePasse" required="true" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\da-zA-Z]).{12,}$"
+                            <form:password path="motDePasse" cssClass="form-control" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\da-zA-Z]).{12,}$"
                             title="Le mot de passe doit contenir au moins 12 caractères dont au moins une lettre majuscule, une lettre minuscule et un chiffre." />
+                            <!--<form:password path="motDePasse" cssClass="form-control" />-->
                             <form:errors path="motDePasse"></form:errors>
                         </div>
                     </div>

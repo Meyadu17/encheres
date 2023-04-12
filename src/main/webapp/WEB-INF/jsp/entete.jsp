@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap-theme.min.css">
         <script src="js/jquery.min.js"></script>
+        <script src="<c:url value='js/test.js'/>"></script>
         <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
         <link rel="icon" href="img/favicon.ico" />
     </head>
