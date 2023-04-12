@@ -21,7 +21,8 @@ import java.util.List;
 public class Article{
 
     @Id
-    @Column(name = "no_article", nullable = false)
+    //@Column(name = "no_article", nullable = false)
+    @JoinColumn(name = "no_article", referencedColumnName = "no_article", nullable = false)
     private int article;
 
     @Column(name = "nom_article", length = 30, nullable = false)
@@ -49,12 +50,6 @@ public class Article{
     @ManyToOne
     @JoinColumn(name = "no_categorie")
     private Categorie categorie;
-
-   /* @OneToOne
-    private Retrait retrait;
-
-    @OneToMany
-    private List<Enchere> enchere;*/
 
     @Column(name = "etat_enchere")
     private Etat etat;

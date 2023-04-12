@@ -30,6 +30,4 @@ public class Retrait {
     @Column(name = "ville", length = 255, nullable = false)
     private String ville;
 
-    /*@OneToOne
-    private Article article;*/
 }
