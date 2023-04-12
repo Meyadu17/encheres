@@ -11,6 +11,8 @@
           </node>
         </introspection-scope>
       </schema-mapping>
+        <url>jdbc:mysql://139SE13-HXTZ3G2:3306/encheres?useSSL=false&amp;serverTimezone=Europe/Paris</url>
+        <remarks />
       <url>jdbc:mysql://139SE13-HXTZ3G2:3306/encheres?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris?useSSL=false&amp;serverTimezone=Europe/Paris</url>
       <schema-mapping>
         <introspection-scope>
