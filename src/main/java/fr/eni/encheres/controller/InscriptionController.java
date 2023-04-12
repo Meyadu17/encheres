@@ -46,12 +46,15 @@ public class InscriptionController {
     @RequestMapping(value = "/validerInscription", method = RequestMethod.POST)
     public String validerinscrire(@ModelAttribute("userInSession") Utilisateur user, Model model) {
         logger.warning("Demande validation");
+
         //Contrôle de l'égalité des champs mot de passe et confirmation mot de passe
         if (!user.getMotDePasse().equals(user.getConfirmationMotDePasse())) {
             model.addAttribute("errorMessage","Les mots de passe ne correspondent pas.");
             return "inscription";
         } else {
         user.setMotDePasse(PasswordEncrypt.encryptPassword(user.getMotDePasse()));
+        utilisateurDAO.save(user);
+
         gestionUtilisateur.creerUtilisateur(user);
         return "accueil";
         }

@@ -12,10 +12,8 @@ import java.util.List;
 @Repository
 
 public interface ArticleDAO extends JpaRepository<Article, Integer> {
-<<<<<<< Updated upstream
+
     @Query(value ="SELECT * FROM article a WHERE a.nom_article LIKE %?%", nativeQuery = true)
    List<Article> search(String keyword);
-=======
 
->>>>>>> Stashed changes
 }
