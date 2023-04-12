@@ -19,12 +19,14 @@
                 <div class="container">
                     <ul class="nav navbar-nav bg-body-tertiary">
                         <li class="pull-left"><a class="navbar-brand"><img src="img/logoENIEncheres.png"alt="Logo Enchères" width="110" class="d-inline-block align-top"></a></li>
-                         <c:if test="${empty userInSession.getEmail()}">
-                        <li class="pull-right"><a class="navbar-brand" href="connexion">Se connecter </a></li>
+                        <c:if test="${empty userInSession.getEmail()}">
+                            <li class="pull-right"><a class="navbar-brand" href="connexion">Se connecter </a></li>
                         </c:if>
-                         <c:if test="${!empty userInSession.getEmail()}">
-                                        <a class="navbar-brand" href="deconnexion">Se déconnecter </a>
-                                        <a class="navbar-brand" href="profil">Mon profil </a>
+                        <c:if test="${!empty userInSession.getEmail()}">
+                            <a class="navbar-brand" href="./">Enchères </a>
+                            <a class="navbar-brand" href="vente">Vendre un acticle </a>
+                            <a class="navbar-brand" href="profil">Mon profil </a>
+                            <a class="navbar-brand" href="deconnexion">Se déconnecter </a>
                         </c:if>
                     </ul>
                 </div>
