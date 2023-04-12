@@ -3,6 +3,8 @@ package fr.eni.encheres.bo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -20,8 +22,11 @@ public class Categorie {
 
     @Id
     @Column(name = "no_categorie", nullable = false)
-    private int categorie;
+    private int categorieID;
 
     @Column(name = "libelle", length = 30, nullable = false)
     private String libelle;
+
+    public Categorie() {
+    }
 }

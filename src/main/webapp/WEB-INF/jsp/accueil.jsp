@@ -3,12 +3,24 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
+<!DOCTYPE html>
+<html>
     <jsp:include page="entete.jsp"/>
         <div class="container">
             <div class="jumbotron">
-                <h1>Liste des ench&egrave;res</h1>
-                <form method="post" action="#">
+                <h1>Liste des enchères</h1>
+                <form th:action="@{/}">
+                    Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+                    &nbsp;
+                    <input type="submit" value="Search" />
+                    &nbsp;
+                    <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+                </form>
+                <script type="text/javascript">
+                    function clearSearch() {
+                        window.location = "[[@{/}]]";
+                    }
+                </script>
                     <label for="filtre">Filtres:<input type="text"/></label>
                     <label for="categorie">
                         <select name="categorie">

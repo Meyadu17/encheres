@@ -32,5 +32,9 @@ public class Enchere {
     @ManyToOne
     @JoinColumn(name="no_article", nullable = false)
     private Article article;
+
+    public Enchere() {
+    }
+
 }
 
