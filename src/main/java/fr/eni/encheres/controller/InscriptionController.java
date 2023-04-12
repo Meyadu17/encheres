@@ -7,7 +7,6 @@ import fr.eni.encheres.utils.PasswordEncrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,15 +26,14 @@ public class InscriptionController {
     @Autowired
     UtilisateurDAO utilisateurDAO;
 
+     @Autowired
+    private GestionUtilisateur gestionUtilisateur;
+    private static Logger logger = Logger.getLogger("ConnexionController");
     @ModelAttribute("userInSession")
     public Utilisateur addMyBean1ToSessionScope() {
         logger.warning("Injection de l'attribut en session");
         return new Utilisateur();
     }
-    private static Logger logger = Logger.getLogger("ConnexionController");
-
-   /* @Autowired
-    private GestionUtilisateur beanGU;*/
 
     @RequestMapping(value = "/creation_profil", method = RequestMethod.GET)
     public String creerUtilisateur() {
@@ -43,13 +41,12 @@ public class InscriptionController {
         return "inscription";
     }
 
-
     //chargement d'utilisateur en session apres remplissage des champs et click sur bouton validation
     @RequestMapping(value = "/validerInscription", method = RequestMethod.POST)
     public String validerinscrire(@ModelAttribute("userInSession") Utilisateur user) {
         logger.warning("Demande validation");
         user.setMotDePasse(PasswordEncrypt.encryptPassword(user.getMotDePasse()));
-        utilisateurDAO.save(user);
+        gestionUtilisateur.creerUtilisateur(user);
         return "accueil";
     }
 }
