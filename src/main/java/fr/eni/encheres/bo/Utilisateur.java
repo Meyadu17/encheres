@@ -7,6 +7,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import java.util.List;
+
 /**
  * Entité representant un Utilisateur
  *
@@ -60,6 +62,12 @@ public class Utilisateur {
 
     @Column(name="compte_actif")
     private boolean compteActif;
+
+    /*@OneToMany
+    private List<Enchere> encheres*/
+
+    /*@OneToMany
+    private List<Article> articles;*/
 
     public Utilisateur() {
 

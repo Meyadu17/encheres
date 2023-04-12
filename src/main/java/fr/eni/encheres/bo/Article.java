@@ -5,12 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Entité représentant un article
@@ -20,8 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-
-@Table(name = "article")
+@Entity(name = "article")
 public class Article{
 
     @Id
@@ -51,9 +47,19 @@ public class Article{
     private Utilisateur utilisateur;
 
     @ManyToOne
-    @JoinColumn(name = "no_utilisateur", nullable = false)
+    @JoinColumn(name = "no_categorie")
     private Categorie categorie;
+
+   /* @OneToOne
+    private Retrait retrait;
+
+    @OneToMany
+    private List<Enchere> enchere;*/
 
     @Column(name = "etat_enchere")
     private Etat etat;
+
+    public Article(){
+
+    }
 }

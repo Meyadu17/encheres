@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 /**
  * Entité représentant un retrait
@@ -32,4 +29,7 @@ public class Retrait {
 
     @Column(name = "ville", length = 255, nullable = false)
     private String ville;
+
+    /*@OneToOne
+    private Article article;*/
 }
