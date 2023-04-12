@@ -23,11 +23,14 @@ import java.util.logging.Logger;
 @SessionAttributes(names = { "userInSession"})
 public class InscriptionController {
 
+    //#region variable
     @Autowired
     UtilisateurDAO utilisateurDAO;
 
      @Autowired
-    private GestionUtilisateur gestionUtilisateur;
+     private GestionUtilisateur gestionUtilisateur;
+     //#endregion variable
+
     private static Logger logger = Logger.getLogger("ConnexionController");
     @ModelAttribute("userInSession")
     public Utilisateur addMyBean1ToSessionScope() {
@@ -41,7 +44,7 @@ public class InscriptionController {
         return "inscription";
     }
 
-    //chargement d'utilisateur en session apres remplissage des champs et click sur bouton validation
+    //chargement d'utilisateur en session après remplissage des champs et click sur bouton validation
     @RequestMapping(value = "/validerInscription", method = RequestMethod.POST)
     public String validerinscrire(@ModelAttribute("userInSession") Utilisateur user) {
         logger.warning("Demande validation");
