@@ -14,73 +14,67 @@
         <div class="container">
             <div class="jumbotron">
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="GET" action="informationUtilisateur">
+
                     <div class="form-group">
                         <form:label path="pseudo" cssClass="col-xs-2 control-label">Pseudo</form:label>
                         <div class="col-xs-10">
-                            <form:input path="pseudo" cssClass="form-control" />
+                            <form:input path="pseudo" cssClass="form-control" readonly="true"/>
                             <form:errors path="pseudo"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <form:label path="nom" cssClass="col-xs-2 control-label">Nom</form:label>
                         <div class="col-xs-10">
-                            <form:input path="nom" cssClass="form-control" />
+                            <form:input path="nom" cssClass="form-control" readonly="true"/>
                             <form:errors path="nom"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <form:label path="prenom" cssClass="col-xs-2 control-label">Prénom</form:label>
                         <div class="col-xs-10">
-                            <form:input path="prenom" cssClass="form-control" />
+                            <form:input path="prenom" cssClass="form-control" readonly="true"/>
                             <form:errors path="prenom"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <form:label path="email" cssClass="col-xs-2 control-label">Email</form:label>
                         <div class="col-xs-10">
-                            <form:input path="email" cssClass="form-control" />
+                            <form:input path="email" cssClass="form-control" readonly="true"/>
                             <form:errors path="email"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <form:label path="telephone" cssClass="col-xs-2 control-label">Téléphone</form:label>
                         <div class="col-xs-10">
-                            <form:input path="telephone" cssClass="form-control" />
+                            <form:input path="telephone" cssClass="form-control" readonly="true"/>
                             <form:errors path="telephone"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <form:label path="rue" cssClass="col-xs-2 control-label">Rue</form:label>
                         <div class="col-xs-10">
-                            <form:input path="rue" cssClass="form-control" />
+                            <form:input path="rue" cssClass="form-control" readonly="true"/>
                             <form:errors path="rue"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <form:label path="codePostal" cssClass="col-xs-2 control-label">Code Postal</form:label>
                         <div class="col-xs-10">
-                            <form:input path="codePostal" cssClass="form-control" />
+                            <form:input path="codePostal" cssClass="form-control" readonly="true"/>
                             <form:errors path="codePostal"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <form:label path="ville" cssClass="col-xs-2 control-label">Ville</form:label>
                         <div class="col-xs-10">
-                            <form:input path="ville" cssClass="form-control" />
+                            <form:input path="ville" cssClass="form-control" readonly="true"/>
                             <form:errors path="ville"></form:errors>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <form:label path="motDePasse" cssClass="col-xs-2 control-label"> Mot de passe</form:label>
-                        <div class="col-xs-10">
-                            <form:password path="motDePasse" cssClass="form-control" />
-                            <form:errors path="motDePasse"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-10">
                             <button type="button" class="btn btn-primary">
-                                <a style="color:white" href="creation_profil">Modifier</a>
+                                <a style="color:white" href="modifier-profil">Modifier</a>
                             </button>
                         </div>
                     </div>
