@@ -4,7 +4,6 @@ import fr.eni.encheres.bll.GestionArticle;
 import fr.eni.encheres.bll.GestionCategorie;
 import fr.eni.encheres.bo.Article;
 import fr.eni.encheres.bo.Categorie;
-import fr.eni.encheres.bo.Recherche;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.repository.query.Param;
@@ -39,10 +38,6 @@ public class AccueilDecoController {
     @Autowired
     ServletContext context;
 
-    @ModelAttribute("recherche")
-    public Recherche factory() {
-        return new Recherche();
-    }
 
     private static Logger logger = Logger.getLogger("ConnexionController");
     public static Map<String, Categorie> lesCategories = new HashMap<>();
