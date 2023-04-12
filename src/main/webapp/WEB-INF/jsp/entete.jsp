@@ -1,5 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap-theme.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/commun.css" rel="stylesheet"/>
+    <link rel="icon" href="img/favicon.ico" />
+</head>
+<body>
+<header>
+     <nav class="navbar bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand"><img src="img/logoENIEncheres.png"alt="Logo Enchères"></a>
+            <c:if test="${!empty userInSession.getEmail()}">
+                <a class="navbar-brand" href="deconnexion">Se déconnecter </a>
+                <a class="navbar-brand" href="profil">Mon profil </a>
+            </c:if>
+             <c:if test="${empty userInSession.getEmail()}">
+                   <a class="navbar-brand" href="connexion">Se connecter </a>
+             </c:if>
 
+          </div>
+    </nav>
+</header>
 <html lang="fr">
     <head>
         <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">

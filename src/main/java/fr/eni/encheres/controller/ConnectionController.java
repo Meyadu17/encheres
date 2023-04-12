@@ -27,6 +27,7 @@ public class ConnectionController {
     @Autowired
     private GestionUtilisateur gestionUtilisateur;
 
+
     @ModelAttribute("userInSession")
     public Utilisateur addMyBean1ToSessionScope() {
         logger.warning("Injection de l'attribut en session");
@@ -51,18 +52,24 @@ public class ConnectionController {
         }
         return page;
     }
-
     @RequestMapping(value = "/connexion", method = RequestMethod.POST)
-    public String demandeConnexionUtilisateur() {
-        logger.warning("Demande de connexion");
-        return "connexion";
 
+    public String verifConnectionUtilisateur(Model model,@ModelAttribute("userInSession") Utilisateur user) {
+        logger.warning("Voici les données saisies par le client : " + user.getEmail());
+        Utilisateur utilisateurEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
+        if (utilisateurEnBase == null) {
+            return "connexion";
+        } else {
+            user.setNom(utilisateurEnBase.getNom());
+            model.addAttribute("userInSession", utilisateurEnBase);
+            return "accueil";
+        }
     }
 
     @RequestMapping(value = "/deconnexion", method = RequestMethod.GET)
-    public String deconnecterUtilisateur(SessionStatus status) {
+    public String deconnecterUtilisateur(SessionStatus status, @ModelAttribute("userInSession") Utilisateur user) throws InterruptedException {
         status.setComplete();
-        return "connexion";
+        return "accueil";
     }
 
     @RequestMapping(value = "/connexion", method = RequestMethod.GET)
