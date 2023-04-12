@@ -6,6 +6,7 @@ import fr.eni.encheres.bo.Article;
 import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.bo.Recherche;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< Updated upstream
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+=======
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+>>>>>>> Stashed changes
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PostConstruct;
@@ -28,7 +35,10 @@ import java.util.logging.Logger;
  * @author Jérémy G
  */
 @Controller
+<<<<<<< Updated upstream
 @SessionAttributes("recherche")
+=======
+>>>>>>> Stashed changes
 public class AccueilDecoController {
     @Autowired
     GestionArticle beanGA;
@@ -37,9 +47,13 @@ public class AccueilDecoController {
     @Autowired
     ServletContext context;
 
+<<<<<<< Updated upstream
 
 
    @ModelAttribute("recherche")
+=======
+    @ModelAttribute("recherche")
+>>>>>>> Stashed changes
     public Recherche factory() {
         return new Recherche();
     }
@@ -49,7 +63,11 @@ public class AccueilDecoController {
 
     @PostConstruct
     public void addMyBean2ToApplicationScope() {
+<<<<<<< Updated upstream
         logger.warning("Injection de la liste des catégories dans l'appli");
+=======
+        logger.warning("Injection de la liste des categories dans l appli");
+>>>>>>> Stashed changes
         List <Categorie> categories = beanGC.listeCategories();
         context.setAttribute("categories", categories);
         for (Categorie cat : categories) {
@@ -63,6 +81,7 @@ public class AccueilDecoController {
         ModelAndView mav = new ModelAndView("accueilDeco" , "articles" , articles);
         return mav;
     }
+<<<<<<< Updated upstream
 
     @RequestMapping("/")
     public String viewHomePage(Model model, @Param("keyword") String keyword) {
@@ -71,4 +90,6 @@ public class AccueilDecoController {
         model.addAttribute("keyword", keyword);
         return "accueilDeco";
     }
+=======
+>>>>>>> Stashed changes
 }

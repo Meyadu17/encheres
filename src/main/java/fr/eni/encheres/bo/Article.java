@@ -65,6 +65,7 @@ public class Article{
     public Article() {
 
     }
+<<<<<<< Updated upstream
 
     @Override
     public String toString() {
@@ -94,4 +95,6 @@ public class Article{
     public int hashCode() {
         return Objects.hash(articleID, nom, description, debutEnchere, finEnchere, prixInitial, prixVente, utilisateur, categorie, etat);
     }
+=======
+>>>>>>> Stashed changes
 }

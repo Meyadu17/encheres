@@ -22,8 +22,15 @@ public class ArticleController {
     @Autowired
     GestionArticle beanGA;
 
+<<<<<<< Updated upstream
   @RequestMapping(value = "/rechercher", method = RequestMethod.POST)
     public ModelAndView rechercherArticle(@ModelAttribute("recherche")  Recherche stringToFind) {
+=======
+
+
+    @RequestMapping(value = "/rechercher", method = RequestMethod.POST)
+    public ModelAndView rechercherArticle(@ModelAttribute("recherche")   Recherche stringToFind) {
+>>>>>>> Stashed changes
 
         List<Article> articles = beanGA.listeArticlesEnCoursParNom(stringToFind.getKeyword());
         ModelAndView mav = new ModelAndView("accueilDeco", "articlesParNom", articles);

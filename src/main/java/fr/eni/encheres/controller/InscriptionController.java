@@ -33,6 +33,8 @@ public class InscriptionController {
         logger.warning("Injection de l'attribut en session");
         return new Utilisateur();
     }
+    private static Logger logger = Logger.getLogger("ConnexionController");
+
 
     @RequestMapping(value = "/creation_profil", method = RequestMethod.GET)
     public String creerUtilisateur() {
@@ -40,7 +42,7 @@ public class InscriptionController {
         return "inscription";
     }
 
-    //chargement d'utilisateur en session après remplissage des champs et click sur bouton validation
+    //chargement d'utilisateur en session apres remplissage des champs et click sur bouton validation
     @RequestMapping(value = "/validerInscription", method = RequestMethod.POST)
     public String validerinscrire(@ModelAttribute("userInSession") Utilisateur user, Model model) {
         logger.warning("Demande validation");
