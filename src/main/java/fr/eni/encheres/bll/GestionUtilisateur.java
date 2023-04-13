@@ -36,6 +36,7 @@ public class GestionUtilisateur {
 
             if (userToFindByPseudo == null && userToFindByEmail == null) {
                 utilisateur.setCompteActif(true);
+                utilisateur.setCredit(100);
                 utilisateurDAO.save(utilisateur);
             } else if (userToFindByPseudo != null) {
                 System.err.println(utilisateur.getPseudo() + " : ce pseudo est déjà utilisé.");
