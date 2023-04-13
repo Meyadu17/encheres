@@ -72,6 +72,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <form:label path="credit" cssClass="col-xs-2 control-label"> Crédits</form:label>
+                        <div class="col-xs-10">
+                            <form:input path="credit" cssClass="form-control" readonly="true"/>
+                            <form:errors path="credit"></form:errors>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-10">
                             <button type="button" class="btn btn-primary">
                                 <a style="color:white" href="modifier-profil">Modifier</a>
