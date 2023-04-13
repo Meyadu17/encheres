@@ -31,32 +31,31 @@
                                     <option value="all">Toutes</option>
                                     <c:forEach items="${categories}" var="categorie">
                                         <c:choose>
-                                            <c:when test="${categorieFilter != 'all'}">
-                                                <c:choose>
-                                                    <%--@elvariable id="categorieFilter" type="java.lang.String"--%>
-                                                    <c:when test="${categorieFilter == categorie.categorieID}">
-                                                        <option selected value="${categorie.categorieID}">${categorie.libelle}</option>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <option value="${categorie.categorieID}">${categorie.libelle}</option>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </c:when>
+                                         <c:when test="${categorieFilter != 'all'}">
+                                            <c:choose>
+                                                <%--@elvariable id="categorieFilter" type="java.lang.String"--%>
+                                                <c:when test="${categorieFilter == categorie.categorieID}">
+                                                    <option selected value="${categorie.categorieID}">${categorie.libelle}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="${categorie.categorieID}">${categorie.libelle}</option>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:when>
                                             <c:otherwise>
                                                 <option value="${categorie.noCategorie}">${categorie.libelle}</option>
                                             </c:otherwise>
                                         </c:choose>
                                     </c:forEach>
                                 </select>
-                            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Filtrer Categorie"></input>
-
+                            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Filtrer Categorie"/>
                         </p>
                     </div>
 
                     </form>
                 </div>
             </div>
-        </div>
+            </div>
 
         <!--Liste des enchères-->
         <div class="container">

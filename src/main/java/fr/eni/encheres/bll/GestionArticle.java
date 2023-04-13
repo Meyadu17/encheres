@@ -57,7 +57,6 @@ public class GestionArticle {
         return articlesParNom;
     }
 
-
     public List<Article> listeArticlesEnCoursParCategorie(String libelle) {
         List<Article> articles = listeArticlesEnCours();
         List<Article> articlesParCategorie = new ArrayList<>();
@@ -69,65 +68,4 @@ public class GestionArticle {
         return articlesParCategorie;
     }
 
-
-    public Optional<Article> trouverArticleById (int id) {
-        Optional<Article> article = articleDAO.findById(id);
-        return article;
-    }
-
-    public void modifierArticle (Article art) throws Exception {
-        Optional<Article> articleToFind = articleDAO.findById(art.getArticleID());
-        if (articleToFind.isPresent()) {
-            Article article = articleToFind.get();
-            if (LocalDate.now().isBefore(ChronoLocalDate.from(article.getDebutEnchere()))) {
-                articleDAO.save(art);
-            } else {
-                throw new Exception("Vous ne pouvez plus modifier l'article");
-            }
-        } else {
-            throw new Exception("Article non présent");
-        }
-    }
-
-    public void miseAJourEtatPrixVente (Article art) throws Exception {
-        Optional<Article> articleToFind = articleDAO.findById(art.getArticleID());
-        if (articleToFind.isPresent()) {
-            Article article = articleToFind.get();
-            articleDAO.save(art);
-        } else {
-            throw new Exception("Article non present");
-        }
-    }
-
-    public void supprimerArticle (Article art) throws Exception {
-        Optional<Article> articleToFind = articleDAO.findById(art.getArticleID());
-        if (articleToFind.isPresent()) {
-            Article article = articleToFind.get();
-
-            if (LocalDate.now().isBefore(ChronoLocalDate.from(article.getDebutEnchere()))) {
-                articleDAO.delete(art);
-            } else {
-                throw new Exception("Vous ne pouvez plus modifier l'article");
-            }
-        } else {
-            throw new Exception("Article non présent");
-        }
-    }
-
-    public void majEtatdeVente() throws Exception{
-
-        List<Article> articles = articleDAO.findAll();
-        LocalDate now = LocalDate.now();
-        for (Article a : articles) {
-            if (a.getFinEnchere().isEqual(now.atStartOfDay()) || a.getFinEnchere().isBefore(now.atStartOfDay())) {
-                a.setEtat(Article.Etat.TERMINEE);
-                miseAJourEtatPrixVente(a);
-                System.err.println("passage en condition vente terminée");
-            } else if (a.getDebutEnchere().isEqual(now.atStartOfDay()) || a.getDebutEnchere().isBefore(now.atStartOfDay())) {
-                a.setEtat(Article.Etat.ENCOURS);
-                miseAJourEtatPrixVente(a);
-                System.err.println("passage en condition EN COURS");
-            } System.err.println("problème");
-        }
-    }
 }

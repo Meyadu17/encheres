@@ -25,6 +25,7 @@ import java.util.logging.Logger;
  * @author Jérémy G
  */
 @Controller
+@SessionAttributes({"filterArticle", "filterCategorie"})
 public class AccueilController {
 
     //#region variables
@@ -62,7 +63,7 @@ public class AccueilController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView accueil() {
+    public ModelAndView Accueil() {
         List<Article> articles = beanGA.listeArticlesEnCours();
         ModelAndView mav = new ModelAndView("accueil" , "articles" , articles);
         return mav;

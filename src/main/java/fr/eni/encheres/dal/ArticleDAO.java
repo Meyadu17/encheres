@@ -12,5 +12,5 @@ import java.util.List;
 @Repository
 public interface ArticleDAO extends JpaRepository<Article, Integer> {
     @Query(value ="SELECT * FROM article a WHERE a.nom_article LIKE %?%", nativeQuery = true)
-    List<Article> search(String keyword);
+    List<Article> search(String filter);
 }
