@@ -2,6 +2,9 @@ package fr.eni.encheres.controller;
 
 import fr.eni.encheres.bll.GestionUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
+import fr.eni.encheres.dal.UtilisateurDAO;
+import fr.eni.encheres.utils.PasswordEncrypt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +22,16 @@ import java.util.logging.Logger;
 @SessionAttributes(names = { "userInSession" , "recherche"})
 public class UtilisateurController {
 
+    @Autowired
+    UtilisateurDAO utilisateurDAO;
+
     //#regrion variables
     private static Logger logger = Logger.getLogger("ConnexionController");
-    private GestionUtilisateur beanGU;
+
+    @Autowired
+    private GestionUtilisateur gestionUtilisateur;
     //#endergion variables
+
 
     //Ouverture de la session
     @ModelAttribute("userInSession")
@@ -31,14 +40,4 @@ public class UtilisateurController {
         return new Utilisateur();
     }
 
-    @RequestMapping(value = "/profil", method = RequestMethod.GET)
-    public String informationUtilisateur() {
-        logger.warning("Profil utilisateur");
-        return "profil";
-    }
-    @RequestMapping(value = "/modifier-profil", method = RequestMethod.GET)
-    public String modificationUtilisateur() {
-        logger.warning("Profil utilisateur");
-        return "modifProfil";
-    }
 }

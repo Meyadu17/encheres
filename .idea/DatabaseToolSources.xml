@@ -4,6 +4,13 @@
     <data-source name="139SE13-HXTZ3G21" uuid="f9becef2-bbc0-4324-979f-de51d4d9ae61" type="MYSQL">
       <base-info connect-type="DB_DEFAULT" product="MySQL" version="5.5.5-10.11.2-MariaDB" jdbc-name="MySQL Connector Java" jdbc-version="mysql-connector-java-5.1.47 ( Revision: fe1903b1ecb4a96a917f7ed3190d80c049b1de29 )" />
       <user-name>root</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="encheres" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
       <url>jdbc:mysql://139SE13-HXTZ3G2:3306/encheres?useSSL=false&amp;serverTimezone=Europe/Paris
       <remarks />
       <driver-info id="mysql5" />

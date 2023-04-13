@@ -36,6 +36,7 @@ public class GestionUtilisateur {
 
             if (userToFindByPseudo == null && userToFindByEmail == null) {
                 utilisateur.setCompteActif(true);
+                utilisateur.setCredit(100);
                 utilisateurDAO.save(utilisateur);
             } else if (userToFindByPseudo != null) {
                 System.err.println(utilisateur.getPseudo() + " : ce pseudo est déjà utilisé.");
@@ -84,14 +85,12 @@ public class GestionUtilisateur {
         return utilisateur;
     }
 
-    public void modifierUtilisateur(Utilisateur utilisateur) {
+    public void updateUtilisateur(Utilisateur utilisateur) {
         Utilisateur utilisateurTrouve = trouverUtilisateur(utilisateur);
-        if (utilisateurTrouve != null) {
-            utilisateurDAO.save(utilisateur);
+        if (utilisateur != null) {
+            utilisateurDAO.save(utilisateurTrouve);
             System.err.println("utilisateur modifié");
-        } else {
-            System.err.println("L'utilisateur n'existe pas");
+
         }
     }
-
 }
