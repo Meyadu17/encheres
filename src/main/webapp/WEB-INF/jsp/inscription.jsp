@@ -38,16 +38,15 @@
                     <div class="form-group">
                         <form:label path="email" cssClass="col-xs-2 control-label">Email*</form:label>
                         <div class="col-xs-10">
-                            <form:input path="email" cssClass="form-control"/>
-                            <!--<form:input path="email" cssClass="form-control" pattern="/^[-!#-'*+\/-9=?^-~]+(?:\.[-!#-'*+\/-9=?^-~]+)*@[-!#-'*+\/-9=?^-~]+(?:\.[-!#-'*+\/-9=?^-~]+)+$/i"/>-->
+                            <form:input path="email" cssClass="form-control" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
                             <form:errors path="email"></form:errors>
                         </div>
                     </div>
                     <div class="form-group">
                         <form:label path="telephone" cssClass="col-xs-2 control-label">Téléphone</form:label>
                         <div class="col-xs-10">
-                            <form:input path="telephone" cssClass="form-control"/>
-                            <!--<form:input path="telephone" cssClass="form-control" pattern="(0)[1-9][0-9]{8}"/>-->
+                            <form:input path="telephone" cssClass="form-control" pattern="^0[1-9]([-. ]?[0-9]{2}){4}$"
+                            title="Le numéro de téléphone doit être au format français." />
                             <form:errors path="telephone"></form:errors>
                         </div>
                     </div>
@@ -61,8 +60,7 @@
                     <div class="form-group">
                         <form:label path="codePostal" cssClass="col-xs-2 control-label">Code Postal</form:label>
                         <div class="col-xs-10">
-                            <form:input path="codePostal" cssClass="form-control"/>
-                            <!--<form:input path="codePostal" cssClass="form-control" pattern="/^(?:0[1-9]|[1-8]\d|9[0-8])\d{3}$/"/>-->
+                            <form:input path="codePostal" cssClass="form-control" pattern="^(F-)?((2[A|B])|[0-9]{2})[0-9]{3}$"/>
                             <form:errors path="codePostal"></form:errors>
                         </div>
                     </div>
@@ -76,9 +74,11 @@
                     <div class="form-group">
                         <form:label path="motDePasse" cssClass="col-xs-2 control-label">Mot de passe*</form:label>
                         <div class="col-xs-10">
-                            <form:password path="motDePasse" cssClass="form-control" />
+                            <form:password path="motDePasse" cssClass="form-control" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\da-zA-Z]).{12,}$"
+                            title="Le mot de passe doit contenir au moins 12 caractères dont au moins une lettre majuscule, une lettre minuscule et un chiffre." />
                             <form:errors path="motDePasse"></form:errors>
                         </div>
+                        <!-- Confirmation mot de passe -->
                         <!--<form:label path="motDePasse" cssClass="col-xs-2 control-label">Mot de passe*</form:label>
                         <div class="col-xs-10">
                             <form:password path="motDePasse" cssClass="form-control" />
@@ -88,7 +88,6 @@
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-10">
                             <button type="submit" class="btn btn-primary">Créer</button>
-                            <button type="submit" class="btn btn-primary">Supprimer</button>
                         </div>
                     </div>
                 </form:form>
