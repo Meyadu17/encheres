@@ -23,7 +23,7 @@
                         </c:if>
                         <c:if test="${!empty userInSession.getEmail()}">
                             <a class="navbar-brand" href="./">Enchères </a>
-                            <a class="navbar-brand" href="vente">Vendre un acticle </a>
+                            <a class="navbar-brand" href="creation-vente">Vendre un article </a>
                             <a class="navbar-brand" href="profil">Mon profil </a>
                             <a class="navbar-brand" href="deconnexion">Se déconnecter </a>
                         </c:if>

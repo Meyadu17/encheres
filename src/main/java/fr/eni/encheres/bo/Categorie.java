@@ -3,6 +3,10 @@ package fr.eni.encheres.bo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+<<<<<<< Updated upstream
+=======
+import javax.persistence.Entity;
+>>>>>>> Stashed changes
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -12,6 +16,7 @@ import javax.persistence.Column;
  *
  * @author mdelage2021
  */
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
