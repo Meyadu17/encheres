@@ -5,7 +5,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
     <jsp:include page="entete.jsp"/>
-
         <div class="container">
             <div class="jumbotron">
                 <h1 class="text-center">Mon Profil</h1>
@@ -14,7 +13,6 @@
         <div class="container">
             <div class="jumbotron">
                 <form:form cssClass="form-horizontal" modelAttribute="userInSession" method="GET" action="informationUtilisateur">
-
                     <div class="form-group">
                         <form:label path="pseudo" cssClass="col-xs-2 control-label">Pseudo</form:label>
                         <div class="col-xs-10">
@@ -89,6 +87,5 @@
             </div>
         </div>
     </body>
-
 	<jsp:include page="footer.jsp" />
 </html>

@@ -4,7 +4,6 @@ import fr.eni.encheres.bo.enumenation.Etat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -20,7 +19,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-
 @Table(name = "article")
 public class Article{
 

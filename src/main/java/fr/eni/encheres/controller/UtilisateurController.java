@@ -3,14 +3,10 @@ package fr.eni.encheres.controller;
 import fr.eni.encheres.bll.GestionUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.UtilisateurDAO;
-import fr.eni.encheres.utils.PasswordEncrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
 import java.util.logging.Logger;
 
 /**
@@ -32,12 +28,10 @@ public class UtilisateurController {
     private GestionUtilisateur gestionUtilisateur;
     //#endergion variables
 
-
     //Ouverture de la session
     @ModelAttribute("userInSession")
     public Utilisateur addMyBean1ToSessionScope() {
         logger.warning("Injection de l'attribut en session");
         return new Utilisateur();
     }
-
 }
