@@ -40,39 +40,4 @@ public class UtilisateurController {
         return new Utilisateur();
     }
 
-    @RequestMapping(value = "/profil", method = RequestMethod.GET)
-    public String informationUtilisateur() {
-        logger.warning("Profil utilisateur");
-        return "profil";
-    }
-
-    /**
-     * Mapping de la page modifier le profil de l'utilisateur
-     * @return modifProfil
-     */
-    @RequestMapping(value = "/modifier-profil", method = RequestMethod.GET)
-    public String modificationUtilisateur() {
-        logger.warning("modification du Profil utilisateur");
-        return "modifProfil";
-    }
-
-    /**
-     * Validation de la modification et retour à la page profil
-     * @param user
-     * @return
-     */
-   /* @RequestMapping(value = "/validerModification", method = RequestMethod.PUT)
-    public String validerModification(@ModelAttribute("userInSession") Utilisateur user) {
-        logger.warning("Demande validation de la modification");
-        user.setMotDePasse(PasswordEncrypt.encryptPassword(user.getMotDePasse()));
-        gestionUtilisateur.modifierUtilisateur(user);
-        return "profil";
-    }*/
-
-    @RequestMapping(value="/validerModification", method= RequestMethod.PUT, params="save")
-    public String updateUtilisateur(@ModelAttribute("userInSession") Utilisateur user){
-        logger.warning("Demande validation de la modification");
-        gestionUtilisateur.updateUtilisateur(user);
-        return "accueil";
-    }
 }
