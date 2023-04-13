@@ -5,7 +5,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
     <jsp:include page="entete.jsp"/>
-
         <div class="container">
             <div class="jumbotron">
                 <h1 class="text-center">Mon Profil</h1>
@@ -96,6 +95,5 @@
             </div>
         </div>
     </body>
-
 	<jsp:include page="footer.jsp" />
 </html>

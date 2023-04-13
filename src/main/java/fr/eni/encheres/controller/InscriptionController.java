@@ -5,12 +5,9 @@ import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.UtilisateurDAO;
 import fr.eni.encheres.utils.PasswordEncrypt;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.logging.Logger;
 
 /**
@@ -47,6 +44,7 @@ public class InscriptionController {
     @RequestMapping(value = "/validerInscription", method = RequestMethod.POST)
     public String validerinscrire(@ModelAttribute("userInSession") Utilisateur user, Model model) {
         logger.warning("Demande validation");
+        //Contrôle de l'égalité des champs mot de passe et confirmation mot de passe
         if (!user.getMotDePasse().equals(user.getConfirmationMotDePasse())) {
             model.addAttribute("errorMessage","Les mots de passe ne correspondent pas.");
             return "inscription";
@@ -54,6 +52,6 @@ public class InscriptionController {
         user.setMotDePasse(PasswordEncrypt.encryptPassword(user.getMotDePasse()));
         gestionUtilisateur.creerUtilisateur(user);
         return "accueil";
+        }
     }
-}
 }

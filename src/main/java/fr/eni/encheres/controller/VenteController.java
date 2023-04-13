@@ -14,7 +14,6 @@ public class VenteController {
 
     @RequestMapping(value = "/vente", method = RequestMethod.GET)
     public String accueil(){
-
         return "vente";
     }
 }

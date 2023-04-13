@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-
 import java.util.logging.Logger;
 
 /**
@@ -26,7 +25,6 @@ public class ConnectionController {
 
     @Autowired
     private GestionUtilisateur gestionUtilisateur;
-
 
     @ModelAttribute("userInSession")
     public Utilisateur addMyBean1ToSessionScope() {
@@ -53,7 +51,6 @@ public class ConnectionController {
         return page;
     }
     @RequestMapping(value = "/connexion", method = RequestMethod.POST)
-
     public String verifConnectionUtilisateur(Model model,@ModelAttribute("userInSession") Utilisateur user) {
         logger.warning("Voici les données saisies par le client : " + user.getEmail());
         Utilisateur utilisateurEnBase = gestionUtilisateur.trouverUtilisateurByLogin(user.getEmail());
@@ -76,7 +73,5 @@ public class ConnectionController {
     public String Connexion() {
         logger.warning("Demande de connexion");
         return "connexion";
-
     }
-
 }
