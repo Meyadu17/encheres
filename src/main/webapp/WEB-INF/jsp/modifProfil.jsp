@@ -79,9 +79,9 @@
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-10">
-                            <button type="button" class="btn btn-primary">
-                                <a style="color:white" href="creation_profil">Enregister</a>
-                            </button>
+                            <input type="submit" class="btn btn-primary">
+                                Enregister
+                            </input>
                         </div>
                     </div>
                 </form:form>

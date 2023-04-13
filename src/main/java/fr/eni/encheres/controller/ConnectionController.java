@@ -1,7 +1,9 @@
 package fr.eni.encheres.controller;
 
 import fr.eni.encheres.bll.GestionUtilisateur;
+import fr.eni.encheres.bo.Article;
 import fr.eni.encheres.bo.Utilisateur;
+import fr.eni.encheres.dal.ArticleDAO;
 import fr.eni.encheres.utils.PasswordEncrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -20,18 +23,26 @@ import java.util.logging.Logger;
  * @author mdelage2021
  */
 @Controller
-@SessionAttributes(names = { "userInSession" , "recherche"})
+@SessionAttributes(names = { "userInSession" , "articleInSession"})
 public class ConnectionController {
     private static Logger logger = Logger.getLogger("ConnexionController");
 
     @Autowired
     private GestionUtilisateur gestionUtilisateur;
 
+    @Autowired
+    private ArticleDAO articleDAO;
 
     @ModelAttribute("userInSession")
     public Utilisateur addMyBean1ToSessionScope() {
         logger.warning("Injection de l'attribut en session");
         return new Utilisateur();
+    }
+
+    @ModelAttribute("articleInSession")
+    public Article addMyBean2ToSessionScope() {
+        logger.warning("Injection de l'attribut en session");
+        return new Article();
     }
 
     @RequestMapping(value = "/validerConnexion", method = RequestMethod.POST)
@@ -45,6 +56,8 @@ public class ConnectionController {
             if(PasswordEncrypt.encryptPassword(user.getMotDePasse()).equals(utilisateurEnBase.getMotDePasse())) {
                 user.setNom(utilisateurEnBase.getNom());
                 mm.addAttribute("userInSession", utilisateurEnBase);
+                List<Article> articles = articleDAO.findAll();
+                mm.addAttribute("articleInSession", articles);
                 page = "accueil";
             }else{
                 page ="connexion";

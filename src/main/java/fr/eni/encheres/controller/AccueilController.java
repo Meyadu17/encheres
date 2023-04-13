@@ -68,8 +68,7 @@ public class AccueilController {
         return mav;
     }
 
-
-    @RequestMapping(value = "/filtre", method = RequestMethod.GET)
+    @RequestMapping(value = "/filter", method = RequestMethod.GET)
     public ModelAndView viewHomePage(Model model, @ModelAttribute("filterArticle") Filter stringToFind) {
 
         model.addAttribute("filterArticle", stringToFind);

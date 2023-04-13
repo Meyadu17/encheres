@@ -16,13 +16,13 @@
                 <!--Filtre de recherche-->
 
                 <div class="col col-md-6 text-center mx-auto text-center d-flex flex-row">
-                    <form class="form-inline" method="GET" action="filterArticle" modelAttribute="filterArticle">
+                    <form class="form-inline" method="GET" action="filter">
                         <!-- Barre de recherche-->
                         <label for="filterArticle">Nom de l'article :</label>
                         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher par nom" name="filterArticle" aria-label="Search" id="filterArticle" th:value="${filterArticle}">
                           <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Filtrer Nom"></input>
                     </form><br>
-                    <form class="form-inline" method="GET" action="filterCategorie" modelAttribute="filterCategorie">
+                    <form class="form-inline" method="GET" action="filterCategorie">
                         <!--Menu catégorie-->
                         <div>
                             <p class="d-flex flex-row">

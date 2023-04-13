@@ -87,7 +87,6 @@ public class GestionArticle {
         } else {
             throw new Exception("Article non présent");
         }
-        //TODO : gerer les exceptions de modifArticle ou condition dans Controller
     }
 
     public void miseAJourEtatPrixVente (Article art) throws Exception {
@@ -98,7 +97,6 @@ public class GestionArticle {
         } else {
             throw new Exception("Article non present");
         }
-        //TODO : gerer les exceptions de modifArticle ou condition dans Controller
     }
 
     public void supprimerArticle (Article art) throws Exception {
@@ -114,11 +112,9 @@ public class GestionArticle {
         } else {
             throw new Exception("Article non présent");
         }
-        //TODO : gerer les exceptions de suppressionArticle
     }
 
     public void majEtatdeVente() throws Exception{
-        // TODO : gerer l'etat de vente en batch ou procedure stockée ??
 
         List<Article> articles = articleDAO.findAll();
         LocalDate now = LocalDate.now();
