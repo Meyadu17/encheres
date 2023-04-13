@@ -10,7 +10,7 @@ inputRecherche.addEventListener("input", function() {
   // Parcourt la liste des articles et affiche ou masque ceux qui correspondent au terme de recherche
   for (var i = 0; i < articles.length; i++) {
     var article = articles[i];
-    var nomArticle = article.getElementsByClassName("nom")[0].textContent.toLowerCase();
+    var nomArticle = article.getElementsByClassName("nom_article")[0].textContent.toLowerCase();
     if (nomArticle.indexOf(termeRecherche) !== -1) {
       article.style.display = "";
     } else {

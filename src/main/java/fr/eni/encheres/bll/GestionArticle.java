@@ -26,11 +26,14 @@ public class GestionArticle {
         return articles;
     }
 
-    public List<Article> listAll(String keyword) {
-        if (keyword != null) {
-            return articleDAO.search(keyword);
-        }
+    public List<Article> listAll() {
         return articleDAO.findAll();
+    }
+    public List<Article> listAllByName(String nom) {
+        if(nom != null){
+            return articleDAO.search(nom);
+        }
+        return this.listAll();
     }
 
     public List<Article> listeArticlesEnCours() {

@@ -4,16 +4,12 @@ import fr.eni.encheres.bll.GestionArticle;
 import fr.eni.encheres.bll.GestionCategorie;
 import fr.eni.encheres.bo.Article;
 import fr.eni.encheres.bo.Categorie;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.data.repository.query.Param;
+import fr.eni.encheres.bo.Filter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PostConstruct;
@@ -29,7 +25,7 @@ import java.util.logging.Logger;
  * @author Jérémy G
  */
 @Controller
-@SessionAttributes("recherche")
+@SessionAttributes({"filterArticle", "filterCategorie"})
 public class AccueilDecoController {
 
     //#region variables
@@ -41,9 +37,21 @@ public class AccueilDecoController {
     ServletContext context;
     //#endreg
 
-    private static Logger logger = Logger.getLogger("ConnexionController");
+    private static Logger logger = Logger.getLogger("AccueilDecoController");
     public static Map<String, Categorie> lesCategories = new HashMap<>();
     //#endregion variable
+
+   @ModelAttribute("filterArticle")
+    public Filter addMyBean1ToSessionScope1() {
+        logger.warning("Injection de l'attribut en session");
+        return new Filter();
+    }
+
+    @ModelAttribute("filterCategorie")
+    public Filter addMyBean1ToSessionScope2() {
+        logger.warning("Injection de l'attribut en session");
+        return new Filter();
+    }
 
     @PostConstruct
     public void categorieFilter() {
@@ -62,11 +70,27 @@ public class AccueilDecoController {
         return mav;
     }
 
-    @RequestMapping("/")
-    public String viewHomePage(Model model, @Param("keyword") String keyword) {
-        List<Article> listProducts = beanGA.listAll(keyword);
-        model.addAttribute("listProducts", listProducts);
-        model.addAttribute("keyword", keyword);
-        return "accueilDeco";
+    @RequestMapping(value = "/filtre", method = RequestMethod.GET)
+    public ModelAndView viewHomePage(Model model, @ModelAttribute("filterArticle") Filter stringToFind) {
+
+        model.addAttribute("filterArticle", stringToFind);
+        // cas categorie renseignée différent de all
+
+            List<Article> articles = beanGA.listAllByName(stringToFind.getFilterArticle());
+            ModelAndView mav = new ModelAndView("accueilDeco", "articles", articles);
+            return mav;
+
     }
+
+    @RequestMapping(value = "/filtreCategorie", method = RequestMethod.GET)
+    public ModelAndView viewHomePage2(Model model, @ModelAttribute("filterCategorie") Filter stringToFind) {
+
+        model.addAttribute("filterArticle", stringToFind);
+            List<Article> articles = beanGA.listeArticlesEnCoursParCategorie(stringToFind.getCategorie().getLibelle());
+            ModelAndView mav = new ModelAndView("accueilDeco", "articles", articles);
+            return mav;
+
+    }
+
+
 }

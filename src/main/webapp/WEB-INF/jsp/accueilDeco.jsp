@@ -3,6 +3,8 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+    <!--<script src="<c:url value='js/test.js'/>"></script>-->
+
 
     <jsp:include page="entete.jsp"/>
         <div class="container">
@@ -16,39 +18,46 @@
                 <!--Filtre de recherche-->
 
                 <div class="col col-md-6 text-center mx-auto text-center d-flex flex-row">
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher par nom" name="keyword" aria-label="Search" id="keyword" th:value="${keyword}">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-                <!--Menu catégorie-->
-                <div>
-                    <p class="d-flex flex-row">
-                        <label for="categories">Catégorie :</label>
-                        <select name="category_filter" id="categories">
-                            <option value="all">Toutes</option>
-                            <c:forEach items="${categories}" var="categorie">
-                                <c:choose>
-                                    <c:when test="${categorieFilter != 'all'}">
+                    <form class="form-inline" method="GET" action="filtre">
+                        <!-- Barre de recherche-->
+                        <label for="filterArticle">Nom de l'article :</label>
+                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher par nom" name="filterArticle" aria-label="Search" id="filterArticle" th:value="${filterArticle}">
+                          <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Filtrer Nom"></input>
+                    </form><br>
+                    <form class="form-inline" method="GET" action="filtreCategorie">
+                        <!--Menu catégorie-->
+                        <div>
+                            <p class="d-flex flex-row">
+                                <label for="categories">Catégorie :</label>
+                                <select name="categorie" id="categories">
+                                    <option value="all">Toutes</option>
+                                    <c:forEach items="${categories}" var="categorie">
                                         <c:choose>
-                                            <%--@elvariable id="categorieFilter" type="java.lang.String"--%>
-                                            <c:when test="${categorieFilter == categorie.categorieID}">
-                                                <option selected value="${categorie.categorieID}">${categorie.libelle}</option>
+                                            <c:when test="${categorieFilter != 'all'}">
+                                                <c:choose>
+                                                    <%--@elvariable id="categorieFilter" type="java.lang.String"--%>
+                                                    <c:when test="${categorieFilter == categorie.categorieID}">
+                                                        <option selected value="${categorie.categorieID}">${categorie.libelle}</option>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <option value="${categorie.categorieID}">${categorie.libelle}</option>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </c:when>
                                             <c:otherwise>
-                                                <option value="${categorie.categorieID}">${categorie.libelle}</option>
+                                                <option value="${categorie.noCategorie}">${categorie.libelle}</option>
                                             </c:otherwise>
                                         </c:choose>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <option value="${categorie.noCategorie}">${categorie.libelle}</option>
-                                    </c:otherwise>
-                                </c:choose>
-                            </c:forEach>
-                        </select>
-                    </p>
+                                    </c:forEach>
+                                </select>
+                            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Filtrer Categorie"></input>
+
+                        </p>
+                    </div>
+
+                    </form>
                 </div>
-            <div>
+            </div>
         </div>
 
         <!--Liste des enchères-->
@@ -59,7 +68,7 @@
                         <div class="card mb-3 border border-primary col-md-6" id= "card">
                             <div class="row g-0">
                                     <div class="col-md-4 text-center border border-4">
-                                        <img src="img/croix.png" class="img-fluid rounded-start"
+                                        <img src="img/shopping.png" class="img-fluid rounded-start"
                                             width="100" height="100" alt="sansImg">
                                     </div>
                                 <div class="col-md-8">
