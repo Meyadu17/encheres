@@ -2,11 +2,14 @@ package fr.eni.encheres.bo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
+
 /**
  * Entité representant un Utilisateur
  *
@@ -15,6 +18,7 @@ import javax.persistence.Column;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity(name="utilisateur")
 public class Utilisateur {
 
@@ -51,6 +55,9 @@ public class Utilisateur {
     @Column(name="mot_de_passe", nullable = false)
     private String motDePasse;
 
+    @NotNull
+    private String confirmationMotDePasse;
+
     @Column(name="credit", nullable = false)
 
     private int credit;
@@ -61,9 +68,6 @@ public class Utilisateur {
     @Column(name="compte_actif")
     private boolean compteActif;
 
-    public Utilisateur() {
-
-    }
 }
 
 

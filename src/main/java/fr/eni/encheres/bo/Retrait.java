@@ -17,7 +17,8 @@ import javax.persistence.Column;
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity(name = "retrait")
+@Entity
+@Table(name = "retrait")
 public class Retrait {
 
     @Id
