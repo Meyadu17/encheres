@@ -64,9 +64,9 @@ public class ConnectionController {
     }
 
     @RequestMapping(value = "/deconnexion", method = RequestMethod.GET)
-    public String deconnecterUtilisateur(SessionStatus status, @ModelAttribute("userInSession") Utilisateur user) throws InterruptedException {
+    public String deconnecterUtilisateur(SessionStatus status, @ModelAttribute("userInSession") Utilisateur user) {
         status.setComplete();
-        return "accueil";
+        return "accueilDeco";
     }
 
     @RequestMapping(value = "/connexion", method = RequestMethod.GET)
