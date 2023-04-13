@@ -3,6 +3,7 @@ package fr.eni.encheres.bo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import javax.persistence.Id;
@@ -50,6 +51,9 @@ public class Utilisateur {
 
     @Column(name="mot_de_passe", nullable = false)
     private String motDePasse;
+
+    @NotNull
+    private String confirmationMotDePasse;
 
     @Column(name="credit", nullable = false)
 
