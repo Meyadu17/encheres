@@ -35,7 +35,6 @@ public class AccueilDecoController {
     GestionCategorie beanGC;
     @Autowired
     ServletContext context;
-    //#endreg
 
     private static Logger logger = Logger.getLogger("AccueilDecoController");
     public static Map<String, Categorie> lesCategories = new HashMap<>();
@@ -70,27 +69,26 @@ public class AccueilDecoController {
         return mav;
     }
 
+
     @RequestMapping(value = "/filtre", method = RequestMethod.GET)
     public ModelAndView viewHomePage(Model model, @ModelAttribute("filterArticle") Filter stringToFind) {
 
         model.addAttribute("filterArticle", stringToFind);
         // cas categorie renseignée différent de all
 
-            List<Article> articles = beanGA.listAllByName(stringToFind.getFilterArticle());
-            ModelAndView mav = new ModelAndView("accueilDeco", "articles", articles);
-            return mav;
+        List<Article> articles = beanGA.listAllByName(stringToFind.getFilterArticle());
+        ModelAndView mav = new ModelAndView("accueilDeco", "articles", articles);
+        return mav;
 
     }
 
-    @RequestMapping(value = "/filtreCategorie", method = RequestMethod.GET)
+    @RequestMapping(value = "/filterCategorie", method = RequestMethod.GET)
     public ModelAndView viewHomePage2(Model model, @ModelAttribute("filterCategorie") Filter stringToFind) {
 
         model.addAttribute("filterArticle", stringToFind);
-            List<Article> articles = beanGA.listeArticlesEnCoursParCategorie(stringToFind.getCategorie().getLibelle());
-            ModelAndView mav = new ModelAndView("accueilDeco", "articles", articles);
-            return mav;
-
+        List<Article> articles = beanGA.listeArticlesEnCoursParCategorie(stringToFind.getCategorie().getLibelle());
+        ModelAndView mav = new ModelAndView("accueilDeco", "articles", articles);
+        return mav;
     }
-
 
 }

@@ -15,8 +15,7 @@ import javax.persistence.Column;
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity
-@Table(name="utilisateur")
+@Entity(name="utilisateur")
 public class Utilisateur {
 
     @Id
@@ -56,7 +55,6 @@ public class Utilisateur {
     private String confirmationMotDePasse;
 
     @Column(name="credit", nullable = false)
-
     private int credit;
 
     @Column(name="administrateur")
@@ -67,6 +65,5 @@ public class Utilisateur {
 
     public Utilisateur() {
     }
+
 }
-
-

@@ -43,7 +43,7 @@ public class ConnectionController {
             if(PasswordEncrypt.encryptPassword(user.getMotDePasse()).equals(utilisateurEnBase.getMotDePasse())) {
                 user.setNom(utilisateurEnBase.getNom());
                 mm.addAttribute("userInSession", utilisateurEnBase);
-                page = "accueil";
+                page = "accueilDeco";
             }else{
                 page ="connexion";
             }
@@ -59,12 +59,12 @@ public class ConnectionController {
         } else {
             user.setNom(utilisateurEnBase.getNom());
             model.addAttribute("userInSession", utilisateurEnBase);
-            return "accueil";
+            return "accueilDeco";
         }
     }
 
     @RequestMapping(value = "/deconnexion", method = RequestMethod.GET)
-    public String deconnecterUtilisateur(SessionStatus status, @ModelAttribute("userInSession") Utilisateur user) {
+    public String deconnecterUtilisateur(SessionStatus status, @ModelAttribute("userInSession") Utilisateur user) throws InterruptedException {
         status.setComplete();
         return "accueilDeco";
     }

@@ -5,7 +5,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
     <!--<script src="<c:url value='js/test.js'/>"></script>-->
 
-
     <jsp:include page="entete.jsp"/>
         <div class="container">
             <div class="jumbotron">
@@ -18,13 +17,13 @@
                 <!--Filtre de recherche-->
 
                 <div class="col col-md-6 text-center mx-auto text-center d-flex flex-row">
-                    <form class="form-inline" method="GET" action="filtre">
+                    <form class="form-inline" method="GET" action="filterArticle" modelAttribute="filterArticle">
                         <!-- Barre de recherche-->
                         <label for="filterArticle">Nom de l'article :</label>
                         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher par nom" name="filterArticle" aria-label="Search" id="filterArticle" th:value="${filterArticle}">
                           <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Filtrer Nom"></input>
                     </form><br>
-                    <form class="form-inline" method="GET" action="filtreCategorie">
+                    <form class="form-inline" method="GET" action="filterCategorie" modelAttribute="filterCategorie">
                         <!--Menu catégorie-->
                         <div>
                             <p class="d-flex flex-row">

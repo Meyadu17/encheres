@@ -9,7 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 /**
  * Entité représentant un article
@@ -28,7 +30,7 @@ public class Article{
 
     @Id
     @Column(name = "no_article", nullable = false)
-    private int article;
+    private int articleID;
 
     @Column(name = "nom_article", length = 30, nullable = false)
     private  String nom;
@@ -45,7 +47,7 @@ public class Article{
     @Column(name = "prix_initial")
     private int prixInitial;
 
-    @Column(name = "prix_vente")
+    @Column(name = "prix_vente", nullable = true)
     private int prixVente;
 
     @ManyToOne
@@ -68,7 +70,7 @@ public class Article{
     @Override
     public String toString() {
         return "Article{" +
-                "articleID=" + article +
+                "articleID=" + articleID +
                 ", nom='" + nom + '\'' +
                 ", description='" + description + '\'' +
                 ", debutEnchere=" + debutEnchere +
